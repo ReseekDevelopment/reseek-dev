@@ -607,24 +607,6 @@ var typed2 = new Typed("#typed", {
     loop: true,
     showCursor: false
 });
-//round section 1 animation
-$(".section-1").each(function(index) {
-    let targetElementRound = $(".section-1-round .round-wrapp");
-    const section1 = $(this);
-    let tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: section1,
-            start: "0% 100%",
-            end: "5% 100%",
-            scrub: 0,
-            toggleActions: "restar pause reverse pause"
-        }
-    });
-    tl.to(targetElementRound, {
-        height: 0,
-        ease: "none"
-    }, 0);
-});
 //GSAP loader 
 const svg = document.getElementById("svg");
 const l1 = document.getElementById("l1");
@@ -704,6 +686,24 @@ tl2.to(".loader-wrap", {
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
+});
+//round section 1 animation
+$(".section-1").each(function(index) {
+    let targetElementRound = $(".section-1-round .round-wrapp");
+    const section1 = $(this);
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section1,
+            start: "0% 100%",
+            end: "5% 100%",
+            scrub: 0,
+            toggleActions: "restar pause reverse pause"
+        }
+    });
+    tl.to(targetElementRound, {
+        height: 0,
+        ease: "none"
+    }, 0);
 });
 //menu trigger
 const ham = document.querySelector(".menu-button-wrapper");
