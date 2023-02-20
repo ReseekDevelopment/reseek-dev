@@ -855,7 +855,7 @@ ham.addEventListener("click", ()=>{
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-1",
     markers: true,
-    start: "top 90%",
+    start: "top 50%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -907,8 +907,8 @@ ScrollTrigger.create({
 });
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-2",
-    markers: false,
-    start: "top 90%",
+    markers: true,
+    start: "top 50%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -961,7 +961,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-3",
     markers: false,
-    start: "top 90%",
+    start: "top 50%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -1014,7 +1014,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-4",
     markers: false,
-    start: "top 90%",
+    start: "top 50%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
