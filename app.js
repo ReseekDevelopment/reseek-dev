@@ -196,6 +196,27 @@ function checkBgMenu(){
      }
 };
 
+function checkText(){
+  if(($('.main-section').css("background-color") == "rgb(16, 14, 14)") || ($('.main-section').css("background-color") == "#100E0E")){
+     
+    gsap.to('#header-section-2', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#txt-section-2', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#header-section-1', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#txt-section-1', { duration: 0.2, color: '#ffffffbf'})
+
+
+  } else if(($('.main-section').css("background-color") == "rgb(245, 245, 247)") || ($('.main-section').css("background-color") == "#F5F5F7")) {
+    gsap.to('#header-section-2', { duration: 0.2, color: '#000000'})
+    gsap.to('#txt-section-2', { duration: 0.2, color: '#000000'})
+    gsap.to('#header-section-1', { duration: 0.2, color: '#000000'})
+    gsap.to('#txt-section-1', { duration: 0.2, color: '#000000'})
+
+   }
+  
+  }
+
+
+
 
 tlMenu.to(menu, {
 	duration: 0.4,
@@ -274,6 +295,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     checkText();
       
 
      
@@ -285,6 +307,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     checkText()
   
 
    },
@@ -306,6 +329,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+     checkText()
          
 
    },
@@ -316,6 +340,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     checkText()
   
 
      },
@@ -337,6 +362,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     checkText()
 
  
    },
@@ -347,6 +373,7 @@ ham.addEventListener('click', () => {
       gsap.to('#close', { duration: 0.2, color: '#000000'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+      checkText()
         
    
 
