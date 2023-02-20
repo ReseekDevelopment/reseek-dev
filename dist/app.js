@@ -854,8 +854,8 @@ ham.addEventListener("click", ()=>{
 //Change background color animation
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-1",
-    markers: false,
-    start: "top 100%",
+    markers: true,
+    start: "top 90%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -908,7 +908,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-2",
     markers: false,
-    start: "top 100%",
+    start: "top 90%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -961,7 +961,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-3",
     markers: false,
-    start: "top 100%",
+    start: "top 90%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -1014,7 +1014,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-4",
     markers: false,
-    start: "top 80%",
+    start: "top 90%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
