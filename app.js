@@ -283,7 +283,7 @@ ham.addEventListener('click', () => {
  ScrollTrigger.create({
    
    trigger: '.full-wrapper-bg.s-1',
-   markers:true,
+   markers:false,
    start:"top 50%",
    end:"bottom 0%", 
     normalizeScroll: false, 
@@ -317,7 +317,7 @@ ham.addEventListener('click', () => {
  ScrollTrigger.create({
    
    trigger: '.full-wrapper-bg.s-2',
-   markers:true,
+   markers:false,
    start:"top 50%",
    end:"bottom 0%", 
     normalizeScroll: false, 
