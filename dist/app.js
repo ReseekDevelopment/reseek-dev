@@ -763,42 +763,41 @@ function checkBgMenu() {
         }
     }
 }
-function checkText() {
-    if ($(".main-section").css("background-color") == "rgb(16, 14, 14)" || $(".main-section").css("background-color") == "#100E0E") {
-        gsap.to("#header-section-2", {
-            duration: 0.2,
-            color: "#ffffffbf"
-        });
-        gsap.to("#txt-section-2", {
-            duration: 0.2,
-            color: "#ffffffbf"
-        });
-        gsap.to("#header-section-1", {
-            duration: 0.2,
-            color: "#ffffffbf"
-        });
-        gsap.to("#txt-section-1", {
-            duration: 0.2,
-            color: "#ffffffbf"
-        });
-    } else if ($(".main-section").css("background-color") == "rgb(245, 245, 247)" || $(".main-section").css("background-color") == "#F5F5F7") {
-        gsap.to("#header-section-2", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#txt-section-2", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#header-section-1", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#txt-section-1", {
-            duration: 0.2,
-            color: "#000000"
-        });
-    }
+function checkTextWhite() {
+    gsap.to("#header-section-2", {
+        duration: 0.2,
+        color: "#ffffffbf"
+    });
+    gsap.to("#txt-section-2", {
+        duration: 0.2,
+        color: "#ffffffbf"
+    });
+    gsap.to("#header-section-1", {
+        duration: 0.2,
+        color: "#ffffffbf"
+    });
+    gsap.to("#txt-section-1", {
+        duration: 0.2,
+        color: "#ffffffbf"
+    });
+}
+function checkTextBlack() {
+    gsap.to("#header-section-2", {
+        duration: 0.2,
+        color: "#000000"
+    });
+    gsap.to("#txt-section-2", {
+        duration: 0.2,
+        color: "#000000"
+    });
+    gsap.to("#header-section-1", {
+        duration: 0.2,
+        color: "#000000"
+    });
+    gsap.to("#txt-section-1", {
+        duration: 0.2,
+        color: "#000000"
+    });
 }
 tlMenu.to(menu, {
     duration: 0.4,
@@ -856,7 +855,7 @@ ham.addEventListener("click", ()=>{
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-1",
     markers: false,
-    start: "top 80%",
+    start: "top 100%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -880,7 +879,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkText();
+        checkTextWhite();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
@@ -903,13 +902,13 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkText();
+        checkTextWhite();
     }
 });
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-2",
     markers: false,
-    start: "top 80%",
+    start: "top 100%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -933,7 +932,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#ffffff8C"
         });
-        checkText();
+        checkTextBlack();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
@@ -956,13 +955,13 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkText();
+        checkTextWhite();
     }
 });
 ScrollTrigger.create({
     trigger: ".full-wrapper-bg.s-3",
     markers: false,
-    start: "top 80%",
+    start: "top 100%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{
@@ -986,7 +985,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkText();
+        checkTextWhite();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
@@ -1009,7 +1008,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#ffffff8C"
         });
-        checkText();
+        checkTextBlack();
     }
 });
 ScrollTrigger.create({
@@ -1039,6 +1038,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#ffffff8C"
         });
+        checkTextBlack();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
@@ -1061,6 +1061,7 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
+        checkTextWhite();
     }
 });
 // menu hide-show on scroll

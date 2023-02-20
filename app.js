@@ -196,23 +196,22 @@ function checkBgMenu(){
      }
 };
 
-function checkText(){
-  if(($('.main-section').css("background-color") == "rgb(16, 14, 14)") || ($('.main-section').css("background-color") == "#100E0E")){
+function checkTextWhite(){
      
     gsap.to('#header-section-2', { duration: 0.2, color: '#ffffffbf'})
     gsap.to('#txt-section-2', { duration: 0.2, color: '#ffffffbf'})
     gsap.to('#header-section-1', { duration: 0.2, color: '#ffffffbf'})
     gsap.to('#txt-section-1', { duration: 0.2, color: '#ffffffbf'})
 
+  
+  }
 
-  } else if(($('.main-section').css("background-color") == "rgb(245, 245, 247)") || ($('.main-section').css("background-color") == "#F5F5F7")) {
+  function checkTextBlack() {
     gsap.to('#header-section-2', { duration: 0.2, color: '#000000'})
     gsap.to('#txt-section-2', { duration: 0.2, color: '#000000'})
     gsap.to('#header-section-1', { duration: 0.2, color: '#000000'})
     gsap.to('#txt-section-1', { duration: 0.2, color: '#000000'})
 
-   }
-  
   }
 
 
@@ -285,7 +284,7 @@ ham.addEventListener('click', () => {
    
    trigger: '.full-wrapper-bg.s-1',
    markers:false,
-   start:"top 80%",
+   start:"top 100%",
    end:"bottom 0%", 
     normalizeScroll: false, 
  
@@ -295,7 +294,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     checkText();
+     checkTextWhite();
       
 
      
@@ -307,7 +306,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     checkText()
+     checkTextWhite();
   
 
    },
@@ -319,7 +318,7 @@ ham.addEventListener('click', () => {
    
    trigger: '.full-wrapper-bg.s-2',
    markers:false,
-   start:"top 80%",
+   start:"top 100%",
    end:"bottom 0%", 
     normalizeScroll: false, 
  
@@ -329,7 +328,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-     checkText()
+     checkTextBlack();
          
 
    },
@@ -340,8 +339,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     checkText()
-  
+     checkTextWhite();  
 
      },
 
@@ -352,7 +350,7 @@ ham.addEventListener('click', () => {
    
    trigger: '.full-wrapper-bg.s-3',
    markers:false,
-   start:"top 80%",
+   start:"top 100%",
    end:"bottom 0%", 
     normalizeScroll: false, 
  
@@ -362,7 +360,9 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     checkText()
+     checkTextWhite();
+     
+     
 
  
    },
@@ -373,7 +373,8 @@ ham.addEventListener('click', () => {
       gsap.to('#close', { duration: 0.2, color: '#000000'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-      checkText()
+      checkTextBlack();
+     
         
    
 
@@ -396,6 +397,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+     checkTextBlack();
 
 
    },
@@ -406,6 +408,7 @@ ham.addEventListener('click', () => {
       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+      checkTextWhite();
 
 
      },
@@ -432,4 +435,3 @@ ScrollTrigger.create({
     }
   }
 });
-
