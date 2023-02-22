@@ -1118,7 +1118,7 @@ gsap.fromTo(document.querySelectorAll(".flex-card"), {
         //scrub: true,
         start: "top 95%",
         end: "bottom 0%",
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse"
     }
 });
@@ -1326,10 +1326,10 @@ gsap.fromTo(document.querySelector("#case-1"), {
     stagger: 0.3,
     scrollTrigger: {
         trigger: cases,
-        //scrub: true,
+        scrub: true,
         start: "top 75%",
         end: "bottom 0%",
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse"
     }
 });
@@ -1346,7 +1346,7 @@ gsap.fromTo(document.querySelector("#case-2"), {
         scrub: true,
         start: "top 75%",
         end: "bottom 0%",
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse"
     }
 });

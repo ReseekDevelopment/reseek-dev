@@ -464,7 +464,7 @@ var section0 = ('#section-0');
        //scrub: true,
         start: "top 95%",
         end: "bottom 0%",
-        markers: true,
+        markers: false,
         toggleActions:  "play none none reverse"
       }
     }
@@ -574,10 +574,10 @@ var cases = ('.cases-wrapper')
       stagger: 0.3,
       scrollTrigger: {
         trigger: cases,
-       //scrub: true,
+        scrub: true,
         start: "top 75%",
         end: "bottom 0%",
-        markers: true,
+        markers: false,
         toggleActions:  "play none none reverse"
       }
     }
@@ -597,7 +597,7 @@ gsap.fromTo(
       scrub: true,
       start: "top 75%",
       end: "bottom 0%",
-      markers: true,
+      markers: false,
       toggleActions:  "play none none reverse"
     }
   }
