@@ -437,7 +437,7 @@ ScrollTrigger.create({
 });
 
 
-var scrollS2 = document.querySelector("#sticky-section-2");
+var scrollS2 = document.querySelector("#sticky-wppr");
   
 ScrollTrigger.create({
    

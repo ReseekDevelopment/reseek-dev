@@ -1081,7 +1081,7 @@ ScrollTrigger.create({
         else if (direction == 1 && isActive == true) actionNav.play();
     }
 });
-var scrollS2 = document.querySelector("#sticky-section-2");
+var scrollS2 = document.querySelector("#sticky-wppr");
 ScrollTrigger.create({
     trigger: scrollS2,
     markers: true,
