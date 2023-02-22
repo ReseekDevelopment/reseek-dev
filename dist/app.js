@@ -1081,11 +1081,11 @@ ScrollTrigger.create({
         else if (direction == 1 && isActive == true) actionNav.play();
     }
 });
-var scrollS2 = document.querySelector("#sticky-wppr");
+var scrollS2 = document.querySelector("#sticky-2");
 ScrollTrigger.create({
     trigger: scrollS2,
     markers: true,
-    start: "top 18%",
+    start: "top 80%",
     end: "bottom 0%",
     normalizeScroll: false,
     onEnter: ()=>{

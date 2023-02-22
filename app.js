@@ -437,13 +437,13 @@ ScrollTrigger.create({
 });
 
 
-var scrollS2 = document.querySelector("#sticky-wppr");
+var scrollS2 = document.querySelector("#sticky-2");
   
 ScrollTrigger.create({
    
   trigger: scrollS2,
   markers:true,
-  start:"top 18%",
+  start:"top 80%",
   end:"bottom 0%", 
    normalizeScroll: false, 
 
