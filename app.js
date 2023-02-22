@@ -360,19 +360,26 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
      checkTextWhite();
      
      
 
  
    },
-   
+
+   onEnterBack: () =>{
+    gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+
+
+   },
    onLeaveBack: () => {
       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
       gsap.to('#open', { duration: 0.2, color: '#000000'})
       gsap.to('#close', { duration: 0.2, color: '#000000'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+      gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
       checkTextBlack();
      
         
@@ -397,6 +404,7 @@ ham.addEventListener('click', () => {
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+     gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
      checkTextBlack();
 
 
@@ -408,6 +416,7 @@ ham.addEventListener('click', () => {
       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
       checkTextWhite();
 
 
@@ -550,4 +559,48 @@ ScrollTrigger.create({
 
   
 })
+
+var cases = ('.cases-wrapper')
+
+
+  gsap.fromTo(
+    document.querySelector("#case-1"),
+    { x: -200 ,
+    opacity:0,},
+    {
+      x: 0,
+      delay:0.2,
+      opacity:1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: cases,
+       //scrub: true,
+        start: "top 75%",
+        end: "bottom 0%",
+        markers: true,
+        toggleActions:  "play none none reverse"
+      }
+    }
+  
+);
+gsap.fromTo(
+  document.querySelector("#case-2"),
+  { x: 200 ,
+  opacity:0,},
+  {
+    x: 0,
+    delay:0.2,
+    opacity:1,
+    stagger: 0.8,
+    scrollTrigger: {
+      trigger: cases,
+      scrub: true,
+      start: "top 75%",
+      end: "bottom 0%",
+      markers: true,
+      toggleActions:  "play none none reverse"
+    }
+  }
+
+);
 
