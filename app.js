@@ -437,7 +437,38 @@ ScrollTrigger.create({
 });
 
 
+
+//Trigger squares 
+var section0 = ('#section-0');
+
+  gsap.fromTo(
+    document.querySelectorAll(".flex-card"),
+    { y: -10 ,
+    opacity:0,},
+    {
+      y: 0,
+      delay:0.2,
+      opacity:1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: section0,
+       //scrub: true,
+        start: "top 95%",
+        end: "bottom 0%",
+        markers: true,
+        toggleActions:  "play none none reverse"
+      }
+    }
+  
+);
+
+
+
+//trigger sections
+var scrollS1 = document.querySelector("#section-1");
 var scrollS2 = document.querySelector("#sticky-2");
+
+
   
 ScrollTrigger.create({
    
@@ -450,31 +481,73 @@ ScrollTrigger.create({
   onEnter: () => {
     gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
     gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
-    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut'})
+    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
    
   },
 
   onEnterBack: () =>{
     gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
     gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
-    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut'})
+    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+  
 
   },
 
     onLeave: () => {
     gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
     gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
-    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut'})
+    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
  
 
   },
   onLeaveBack: () => {
     gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
     gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
-    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut'})
- 
+    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
 
   },
 
   
 })
+
+ 
+ScrollTrigger.create({
+   
+  trigger: scrollS1,
+  markers:false,
+  start:"top 80%",
+  end:"bottom 0%", 
+   normalizeScroll: false, 
+
+  onEnter: () => {
+    gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  },
+
+  onEnterBack: () =>{
+    gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  
+
+  },
+
+    onLeave: () => {
+    gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+
+  },
+  onLeaveBack: () => {
+    gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  },
+
+  
+})
+
