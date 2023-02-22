@@ -435,3 +435,32 @@ ScrollTrigger.create({
     }
   }
 });
+
+
+var scrollS2 = document.querySelector("#sticky-section-2");
+  
+ScrollTrigger.create({
+   
+  trigger: scrollS2,
+  markers:true,
+  start:"top 18%",
+  end:"bottom 0%", 
+   normalizeScroll: false, 
+
+  onEnter: () => {
+    gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
+    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut'})
+   
+  },
+  
+  onLeaveBack: () => {
+    gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
+    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut'})
+ 
+
+  },
+
+  
+})
