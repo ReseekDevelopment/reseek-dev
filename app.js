@@ -575,9 +575,9 @@ var cases = ('.cases-wrapper')
       scrollTrigger: {
         trigger: cases,
         scrub: true,
-        start: "top 75%",
-        end: "bottom 0%",
-        markers: false,
+        start: "top 95%",
+        end: "bottom 85%",
+        markers: true,
         toggleActions:  "play none none reverse"
       }
     }
@@ -595,9 +595,9 @@ gsap.fromTo(
     scrollTrigger: {
       trigger: cases,
       scrub: true,
-      start: "top 75%",
-      end: "bottom 0%",
-      markers: false,
+      start: "top 95%",
+      end: "bottom 85%",
+      markers: true,
       toggleActions:  "play none none reverse"
     }
   }
