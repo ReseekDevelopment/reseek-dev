@@ -1396,7 +1396,7 @@ gsap.fromTo(document.querySelector("#case-1"), {
         scrub: true,
         start: "top 95%",
         end: "bottom 85%",
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse"
     }
 });
@@ -1413,7 +1413,7 @@ gsap.fromTo(document.querySelector("#case-2"), {
         scrub: true,
         start: "top 95%",
         end: "bottom 85%",
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse"
     }
 });

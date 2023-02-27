@@ -621,7 +621,7 @@ var cases = ('.cases-wrapper')
         scrub: true,
         start: "top 95%",
         end: "bottom 85%",
-        markers: true,
+        markers: false,
         toggleActions:  "play none none reverse"
       }
     }
@@ -641,7 +641,7 @@ gsap.fromTo(
       scrub: true,
       start: "top 95%",
       end: "bottom 85%",
-      markers: true,
+      markers: false,
       toggleActions:  "play none none reverse"
     }
   }
