@@ -609,10 +609,10 @@ var cases = ('.cases-wrapper')
 
   gsap.fromTo(
     document.querySelector("#case-1"),
-    { x: -200 ,
+    { xPercent: -20 ,
     opacity:0,},
     {
-      x: 0,
+      xPercent: 10,
       delay:0.2,
       opacity:1,
       stagger: 0.3,
@@ -629,10 +629,10 @@ var cases = ('.cases-wrapper')
 );
 gsap.fromTo(
   document.querySelector("#case-2"),
-  { x: 200 ,
+  { xPercent: 20 ,
   opacity:0,},
   {
-    x: 0,
+    xPercent: -10,
     delay:0.2,
     opacity:1,
     stagger: 0.8,
