@@ -1086,6 +1086,73 @@ ScrollTrigger.create({
         checkTextWhite();
     }
 });
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-5",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.3,
+            backgroundColor: "#100E0E"
+        });
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+        checkTextWhite();
+    },
+    onEnterBack: ()=>{
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.3,
+            backgroundColor: "#F5F5F7"
+        });
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#ffffff8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 0
+        });
+        checkTextBlack();
+    }
+});
 // menu hide-show on scroll
 var actionNav = gsap.to(".menu-wrapper", {
     y: "-=80",
