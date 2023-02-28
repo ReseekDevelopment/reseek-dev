@@ -168,7 +168,7 @@ $(".section-1").each(function (index) {
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "70% 100%",
+              end: "60% 100%",
               markers:false,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
