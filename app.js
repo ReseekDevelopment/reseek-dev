@@ -159,16 +159,16 @@ $(".section-1").each(function (index) {
       
       });
     
-
-      $("#footer").each(function (index) {
+//Round element footer
+      $("#footer-w").each(function (index) {
         let targetElementRound2 = $(".footer-round .round-wrapp");
         const footerRound = $(this);
         
         let tlFoot = gsap.timeline({
             scrollTrigger: {
               trigger: footerRound,
-              start: "0% 100%",
-              end: "55% 100%",
+              start: "10% 100%",
+              end: "70% 100%",
               markers:true,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
@@ -180,6 +180,7 @@ $(".section-1").each(function (index) {
           }, 0);
           
           }); 
+          
 //menu trigger
 
 const ham = document.querySelector(".menu-button-wrapper");
