@@ -705,6 +705,24 @@ $(".section-1").each(function(index) {
         ease: "none"
     }, 0);
 });
+$(".footer-main").each(function(index) {
+    let targetElementRound2 = $(".footer-round .round-wrapp");
+    const footerRound = $(this);
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: footerRound,
+            start: "0% 100%",
+            end: "55% 100%",
+            markers: true,
+            scrub: 0,
+            toggleActions: "restar pause reverse pause"
+        }
+    });
+    tl.to(targetElementRound2, {
+        height: 0,
+        ease: "none"
+    }, 0);
+});
 //menu trigger
 const ham = document.querySelector(".menu-button-wrapper");
 const menu = document.querySelector(".menu-links-wrapper");
