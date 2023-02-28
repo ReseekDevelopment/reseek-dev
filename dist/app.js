@@ -705,10 +705,10 @@ $(".section-1").each(function(index) {
         ease: "none"
     }, 0);
 });
-$(".footer-main").each(function(index) {
+$("#footer").each(function(index) {
     let targetElementRound2 = $(".footer-round .round-wrapp");
     const footerRound = $(this);
-    let tl = gsap.timeline({
+    let tlFoot = gsap.timeline({
         scrollTrigger: {
             trigger: footerRound,
             start: "0% 100%",
@@ -718,7 +718,7 @@ $(".footer-main").each(function(index) {
             toggleActions: "restar pause reverse pause"
         }
     });
-    tl.to(targetElementRound2, {
+    tlFoot.to(targetElementRound2, {
         height: 0,
         ease: "none"
     }, 0);
