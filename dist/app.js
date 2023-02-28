@@ -707,7 +707,7 @@ $(".section-1").each(function(index) {
 });
 //Round element footer
 $("#footer-w").each(function(index) {
-    let targetElementRound2 = $(".footer-round .round-wrapp");
+    let targetElementRound2 = $(".footer-round .round-wrapp-foot");
     const footerRound = $(this);
     let tlFoot = gsap.timeline({
         scrollTrigger: {
