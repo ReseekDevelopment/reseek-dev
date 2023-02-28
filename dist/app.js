@@ -706,24 +706,22 @@ $(".section-1").each(function(index) {
     }, 0);
 });
 //Round element footer
-$("#footer-w").each(function(index) {
-    let targetElementRound2 = $(".footer-round .round-wrapp-foot");
-    const footerRound = $(this);
-    let tlFoot = gsap.timeline({
-        scrollTrigger: {
-            trigger: footerRound,
-            start: "10% 100%",
-            end: "70% 100%",
-            markers: false,
-            scrub: 0,
-            toggleActions: "restar pause reverse pause"
-        }
-    });
-    tlFoot.to(targetElementRound2, {
-        height: 0,
-        ease: "none"
-    }, 0);
+let targetElementRound2 = $(".footer-round .round-wrapp-foot");
+const footerRound = $("#footer-w");
+let tlFoot = gsap.timeline({
+    scrollTrigger: {
+        trigger: footerRound,
+        start: "10% 100%",
+        end: "70% 100%",
+        markers: false,
+        scrub: 0,
+        toggleActions: "restar pause reverse pause"
+    }
 });
+tlFoot.to(targetElementRound2, {
+    height: 0,
+    ease: "none"
+}, 0);
 //menu trigger
 const ham = document.querySelector(".menu-button-wrapper");
 const menu = document.querySelector(".menu-links-wrapper");

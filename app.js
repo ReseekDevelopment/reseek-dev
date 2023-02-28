@@ -160,9 +160,9 @@ $(".section-1").each(function (index) {
       });
     
 //Round element footer
-      $("#footer-w").each(function (index) {
+  
         let targetElementRound2 = $(".footer-round .round-wrapp-foot");
-        const footerRound = $(this);
+        const footerRound = $("#footer-w");
         
         let tlFoot = gsap.timeline({
             scrollTrigger: {
@@ -179,7 +179,7 @@ $(".section-1").each(function (index) {
             ease: "none"
           }, 0);
           
-          }); 
+     
           
 //menu trigger
 
