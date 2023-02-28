@@ -714,7 +714,7 @@ $("#footer-w").each(function(index) {
             trigger: footerRound,
             start: "10% 100%",
             end: "70% 100%",
-            markers: true,
+            markers: false,
             scrub: 0,
             toggleActions: "restar pause reverse pause"
         }
