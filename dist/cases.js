@@ -853,13 +853,13 @@ ScrollTrigger.create({
     }
 });
 // Animations cases
-var hero = $(".hero-section");
+const hero = $("#hero-section");
 var imgHero = $(".text-case-h1");
 let tlHero = gsap.timeline({
     scrollTrigger: {
         trigger: hero,
-        start: "10% 100%",
-        end: "60% 100%",
+        start: "10% 10%",
+        end: "60% 10%",
         markers: true,
         scrub: 0,
         toggleActions: "restar pause reverse pause"

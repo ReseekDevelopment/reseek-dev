@@ -308,6 +308,46 @@ $(".section-1").each(function (index) {
       }, 0);
       
       });
-      
+
 // Animations cases
 
+const hero = $('#hero-section');
+var txtHero = $('.text-case-h1');
+var txtHero2 = $('.text-hero');
+var bttnHero = $('.case-button');
+var imgHero = $('.img-c');
+
+
+let tlHero = gsap.timeline({
+  scrollTrigger: {
+    trigger: hero,
+    start: "70% 100%",
+    end: "90% 100%",
+    markers:false,
+    scrub: 0,
+    toggleActions: "restar pause reverse pause",
+  }
+});
+tlHero.to(txtHero, {
+  x: 0,
+  scaleX:1,
+  scaleY:1,
+  ease: "none"
+}, 0);
+
+tlHero.to(txtHero2, {
+    opacity: 1,
+    delay:0.5,
+    ease: "none"
+  }, 0);
+  tlHero.to(bttnHero, {
+    opacity: 1,
+    delay:0.5,
+    ease: "none"
+  }, 0);
+
+  tlHero.to(imgHero, {
+    x: 0,
+    delay:0.5,
+    ease: "none"
+  }, 0);
