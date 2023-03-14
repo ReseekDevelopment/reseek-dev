@@ -2,6 +2,8 @@
 //Made by Reseek
 const parceled = true
 //Scroll smooth
+
+
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -33,7 +35,6 @@ if($('.menu-wrapper').hasClass('open')){
 }
 checkScrollMenu();
 requestAnimationFrame(raf)
-
 
 
 
@@ -125,7 +126,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
   markers: false
 });
-
+ScrollTrigger.normalizeScroll(true);
     
 //Round element footer
   

@@ -672,6 +672,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
 });
+ScrollTrigger.normalizeScroll(true);
 //Round element footer
 let targetElementRound2 = $(".footer-round .round-wrapp-foot");
 const footerRound = $("#footer-w");
