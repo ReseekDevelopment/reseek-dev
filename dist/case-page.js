@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"lBd2m":[function(require,module,exports) {
+})({"8YX5D":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = 50619;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "c0db7575ed8fb0be";
+module.bundle.HMR_BUNDLE_ID = "9963f00ffe2bd52e";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,7 +556,7 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"c3tie":[function(require,module,exports) {
+},{}],"5EISo":[function(require,module,exports) {
 //Reseek - GSAP Animation
 //Made by Reseek
 const parceled = true;
@@ -852,26 +852,25 @@ ScrollTrigger.create({
         else if (direction == 1 && isActive == true) actionNav.play();
     }
 });
-// Animations cases
-var hero = $(".hero-section");
-var imgHero = $(".text-case-h1");
-let tlHero = gsap.timeline({
-    scrollTrigger: {
-        trigger: hero,
-        start: "10% 100%",
-        end: "60% 100%",
-        markers: true,
-        scrub: 0,
-        toggleActions: "restar pause reverse pause"
-    }
-});
-tlHero.to(imgHero, {
-    x: 0,
-    scaleX: 1,
-    scaleY: 1,
-    ease: "none"
-}, 0);
+//round section 1 animation
+$(".section-1").each(function(index) {
+    let targetElementRound = $(".section-1-round .round-wrapp");
+    const section1 = $(this);
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section1,
+            start: "0% 100%",
+            end: "5% 100%",
+            scrub: 0,
+            toggleActions: "restar pause reverse pause"
+        }
+    });
+    tl.to(targetElementRound, {
+        height: 0,
+        ease: "none"
+    }, 0);
+}); // Animations cases
 
-},{}]},["lBd2m","c3tie"], "c3tie", "parcelRequire5054")
+},{}]},["8YX5D","5EISo"], "5EISo", "parcelRequire5054")
 
-//# sourceMappingURL=cases.js.map
+//# sourceMappingURL=case-page.js.map

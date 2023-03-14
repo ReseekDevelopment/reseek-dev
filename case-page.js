@@ -287,4 +287,27 @@ ScrollTrigger.create({
   }
 });
 
+
+//round section 1 animation
+$(".section-1").each(function (index) {
+    let targetElementRound = $(".section-1-round .round-wrapp");
+    const section1 = $(this);
+    
+    let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section1,
+          start: "0% 100%",
+          end: "5% 100%",
+          scrub: 0,
+          toggleActions: "restar pause reverse pause",
+        }
+      });
+      tl.to(targetElementRound, {
+        height: 0,
+        ease: "none"
+      }, 0);
+      
+      });
+      
 // Animations cases
+
