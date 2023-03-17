@@ -125,7 +125,13 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
   markers: false
 });
+ScrollTrigger.normalizeScroll(true);
 
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
     
 //Round element footer
   
@@ -291,23 +297,3 @@ ScrollTrigger.create({
 
 
 
-const hero = $('#hero-section');
-var imgHero = $('.text-case-h1');
-
-
-let tlHero = gsap.timeline({
-  scrollTrigger: {
-    trigger: hero,
-    start: "10% 10%",
-    end: "60% 10%",
-    markers:true,
-    scrub: 0,
-    toggleActions: "restar pause reverse pause",
-  }
-});
-tlHero.to(imgHero, {
-  x: 0,
-  scaleX:1,
-  scaleY:1,
-  ease: "none"
-}, 0);

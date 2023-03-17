@@ -127,6 +127,12 @@ ScrollTrigger.defaults({
   markers: false
 });
 ScrollTrigger.normalizeScroll(true);
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
     
 //Round element footer
   
@@ -352,3 +358,4 @@ tlHero.to(txtHero2, {
     delay:0.5,
     ease: "none"
   }, 0);
+
