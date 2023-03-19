@@ -1,7 +1,9 @@
 //Reseek - GSAP Animation
 //Made by Reseek
-const parceled = true
+const parceled = true;
 //Scroll smooth
+
+
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -33,6 +35,7 @@ if($('.menu-wrapper').hasClass('open')){
 }
 checkScrollMenu();
 requestAnimationFrame(raf)
+
 
 //Typed text automatic
   var typed2 = new Typed('#typed', {
@@ -285,6 +288,8 @@ delay:0.2,
 }, "-=0.5");
 
 tlMenu.reverse();
+
+//Add click event
 
 ham.addEventListener('click', () => {
 	tlMenu.reversed(!tlMenu.reversed());

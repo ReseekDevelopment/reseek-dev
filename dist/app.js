@@ -857,6 +857,7 @@ tlMenu.to(link4, {
     ease: "power3.easeInOut"
 }, "-=0.5");
 tlMenu.reverse();
+//Add click event
 ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
     $(".menu-wrapper").toggleClass("open");
