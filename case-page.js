@@ -143,8 +143,8 @@ gsap.ticker.add((time)=>{
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "60% 100%",
-              markers:false,
+              end: "40% 100%",
+              markers:true,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
             }
@@ -317,7 +317,7 @@ $(".section-1").each(function (index) {
       });
 
 // Animations cases
-
+/*
 const hero = $('#hero-section');
 var txtHero = $('.text-case-h1');
 var txtHero2 = $('.text-hero');
@@ -359,3 +359,4 @@ tlHero.to(txtHero2, {
     ease: "none"
   }, 0);
 
+*/
