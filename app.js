@@ -139,11 +139,8 @@ ScrollTrigger.defaults({
 });
 ScrollTrigger.normalizeScroll(true);
 
-lenis.on('scroll', ScrollTrigger.update)
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+
 //round section 1 animation
 $(".section-1").each(function (index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
