@@ -127,11 +127,7 @@ ScrollTrigger.defaults({
 });
 ScrollTrigger.normalizeScroll(true);
 
-lenis.on('scroll', ScrollTrigger.update)
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
     
 //Round element footer
   
