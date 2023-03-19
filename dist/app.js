@@ -713,7 +713,7 @@ let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "60% 100%",
+        end: "30% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
@@ -783,37 +783,37 @@ function checkBgMenu() {
 }
 function checkTextWhite() {
     gsap.to("#header-section-2", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#ffffffbf"
     });
     gsap.to("#txt-section-2", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#ffffffbf"
     });
     gsap.to("#header-section-1", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#ffffffbf"
     });
     gsap.to("#txt-section-1", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#ffffffbf"
     });
 }
 function checkTextBlack() {
     gsap.to("#header-section-2", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#000000"
     });
     gsap.to("#txt-section-2", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#000000"
     });
     gsap.to("#header-section-1", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#000000"
     });
     gsap.to("#txt-section-1", {
-        duration: 0.2,
+        duration: 0.15,
         color: "#000000"
     });
 }
@@ -878,9 +878,10 @@ ScrollTrigger.create({
     normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -897,13 +898,13 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkTextWhite();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -920,7 +921,6 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkTextWhite();
     }
 });
 ScrollTrigger.create({
@@ -931,9 +931,10 @@ ScrollTrigger.create({
     normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#F5F5F7"
         });
+        checkTextBlack();
         gsap.to("#open", {
             duration: 0.2,
             color: "#000000"
@@ -950,13 +951,13 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#ffffff8C"
         });
-        checkTextBlack();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -973,7 +974,6 @@ ScrollTrigger.create({
             duration: 0.2,
             backgroundColor: "#100E0E8C"
         });
-        checkTextWhite();
     }
 });
 ScrollTrigger.create({
@@ -984,9 +984,10 @@ ScrollTrigger.create({
     normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -1007,7 +1008,6 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 1
         });
-        checkTextWhite();
     },
     onEnterBack: ()=>{
         gsap.to("#blur-section-2", {
@@ -1017,9 +1017,10 @@ ScrollTrigger.create({
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#F5F5F7"
         });
+        checkTextBlack();
         gsap.to("#open", {
             duration: 0.2,
             color: "#000000"
@@ -1040,7 +1041,6 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 0
         });
-        checkTextBlack();
     }
 });
 ScrollTrigger.create({
@@ -1051,9 +1051,10 @@ ScrollTrigger.create({
     normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#F5F5F7"
         });
+        checkTextBlack();
         gsap.to("#open", {
             duration: 0.2,
             color: "#000000"
@@ -1074,13 +1075,13 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 0
         });
-        checkTextBlack();
     },
     onLeaveBack: ()=>{
         gsap.to(".main-section", {
-            duration: 0.3,
+            duration: 0.15,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -1101,7 +1102,6 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 1
         });
-        checkTextWhite();
     }
 });
 ScrollTrigger.create({
@@ -1115,6 +1115,7 @@ ScrollTrigger.create({
             duration: 0.3,
             backgroundColor: "#100E0E"
         });
+        checkTextWhite();
         gsap.to("#open", {
             duration: 0.2,
             color: "#ffffff"
@@ -1135,12 +1136,19 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 1
         });
-        checkTextWhite();
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#ffffff1a"
+        });
     },
     onEnterBack: ()=>{
         gsap.to("#blur-section-2", {
             duration: 0.2,
             opacity: 1
+        });
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#ffffff1a"
         });
     },
     onLeaveBack: ()=>{
@@ -1148,6 +1156,7 @@ ScrollTrigger.create({
             duration: 0.3,
             backgroundColor: "#F5F5F7"
         });
+        checkTextBlack();
         gsap.to("#open", {
             duration: 0.2,
             color: "#000000"
@@ -1168,7 +1177,10 @@ ScrollTrigger.create({
             duration: 0.2,
             opacity: 0
         });
-        checkTextBlack();
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#198780ba"
+        });
     }
 });
 // menu hide-show on scroll

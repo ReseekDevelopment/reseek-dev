@@ -138,8 +138,8 @@ ScrollTrigger.normalizeScroll(true);
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "40% 100%",
-              markers:true,
+              end: "30% 100%",
+              markers:false,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
             }

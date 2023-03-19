@@ -680,7 +680,7 @@ let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "60% 100%",
+        end: "30% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
