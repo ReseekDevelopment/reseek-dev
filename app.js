@@ -3,7 +3,6 @@
 const parceled = true;
 //Scroll smooth
 
-
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -225,19 +224,19 @@ function checkBgMenu(){
 
 function checkTextWhite(){
      
-    gsap.to('#header-section-2', { duration: 0.15, color: '#ffffffbf'})
-    gsap.to('#txt-section-2', { duration: 0.15, color: '#ffffffbf'})
-    gsap.to('#header-section-1', { duration: 0.15, color: '#ffffffbf'})
-    gsap.to('#txt-section-1', { duration: 0.15, color: '#ffffffbf'})
+    gsap.to('#header-section-2', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#txt-section-2', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#header-section-1', { duration: 0.2, color: '#ffffffbf'})
+    gsap.to('#txt-section-1', { duration: 0.2, color: '#ffffffbf'})
 
   
   }
 
   function checkTextBlack() {
-    gsap.to('#header-section-2', { duration: 0.15, color: '#000000'})
-    gsap.to('#txt-section-2', { duration: 0.15, color: '#000000'})
-    gsap.to('#header-section-1', { duration: 0.15, color: '#000000'})
-    gsap.to('#txt-section-1', { duration: 0.15, color: '#000000'})
+    gsap.to('#header-section-2', { duration: 0.2, color: '#000000'})
+    gsap.to('#txt-section-2', { duration: 0.2, color: '#000000'})
+    gsap.to('#header-section-1', { duration: 0.2, color: '#000000'})
+    gsap.to('#txt-section-1', { duration: 0.2, color: '#000000'})
 
   }
 
@@ -288,8 +287,6 @@ delay:0.2,
 }, "-=0.5");
 
 tlMenu.reverse();
-
-//Add click event
 
 ham.addEventListener('click', () => {
 	tlMenu.reversed(!tlMenu.reversed());

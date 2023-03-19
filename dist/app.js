@@ -783,37 +783,37 @@ function checkBgMenu() {
 }
 function checkTextWhite() {
     gsap.to("#header-section-2", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#ffffffbf"
     });
     gsap.to("#txt-section-2", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#ffffffbf"
     });
     gsap.to("#header-section-1", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#ffffffbf"
     });
     gsap.to("#txt-section-1", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#ffffffbf"
     });
 }
 function checkTextBlack() {
     gsap.to("#header-section-2", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#000000"
     });
     gsap.to("#txt-section-2", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#000000"
     });
     gsap.to("#header-section-1", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#000000"
     });
     gsap.to("#txt-section-1", {
-        duration: 0.15,
+        duration: 0.2,
         color: "#000000"
     });
 }
@@ -857,7 +857,6 @@ tlMenu.to(link4, {
     ease: "power3.easeInOut"
 }, "-=0.5");
 tlMenu.reverse();
-//Add click event
 ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
     $(".menu-wrapper").toggleClass("open");
