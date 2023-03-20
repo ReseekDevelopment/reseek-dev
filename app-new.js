@@ -36,6 +36,18 @@ if($('.menu-wrapper').hasClass('open')){
 checkScrollMenu();
 requestAnimationFrame(raf)
 
+//typed
+var typed2 = new Typed('#typed', {
+  strings: ['Web Solutions' ,'Web Development', 'Web Design'],
+  typeSpeed: 70,
+  backSpeed: 30,
+  startDelay: 600,
+  backDelay: 1500,
+  fadeOut: true,
+  loop: true,
+  showCursor: false
+});
+
 
 
 //GSAP loader 
