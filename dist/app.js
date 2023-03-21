@@ -656,6 +656,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
 });
+ScrollTrigger.normalizeScroll(true);
 //round section 1 animation
 $(".section-1").each(function(index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
