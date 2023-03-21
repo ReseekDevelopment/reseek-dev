@@ -567,12 +567,11 @@ const lenis = new Lenis({
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,
-    mouseMultiplier: 1,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false
 });
-//get scroll value
+// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
 lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
     console.log({
         scroll,
@@ -586,12 +585,44 @@ function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
+// Grab all elements that have a "data-target" attribute
+const scrollButtons = document.querySelectorAll("[data-target]");
+// For each element, listen to a "click" event
+scrollButtons.forEach((button)=>{
+    button.addEventListener("click", (e)=>{
+        e.preventDefault();
+        // get the DOM element by the ID (data-target value)
+        var target = button.dataset.target, $el = document.getElementById(target.replace("#", ""));
+        // Use lenis.scrollTo() to scroll the page to the right element
+        lenis.scrollTo($el, {
+            offset: 0,
+            immediate: false,
+            duration: 3,
+            easing: (x)=>x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2
+        });
+    });
+});
+requestAnimationFrame(raf);
 function checkScrollMenu() {
     if ($(".menu-wrapper").hasClass("open")) lenis.stop();
     else lenis.start();
 }
 checkScrollMenu();
-requestAnimationFrame(raf);
+//typed
+var typed2 = new Typed("#typed", {
+    strings: [
+        "Web Solutions",
+        "Web Development",
+        "Web Design"
+    ],
+    typeSpeed: 70,
+    backSpeed: 30,
+    startDelay: 600,
+    backDelay: 1500,
+    fadeOut: true,
+    loop: true,
+    showCursor: false
+});
 //GSAP loader 
 const svg = document.getElementById("svg");
 const l1 = document.getElementById("l1");
@@ -673,6 +704,7 @@ ScrollTrigger.defaults({
     markers: false
 });
 ScrollTrigger.normalizeScroll(true);
+lenis.on("scroll", ScrollTrigger.update);
 //Round element footer
 let targetElementRound2 = $(".footer-round .round-wrapp-foot");
 const footerRound = $("#footer-w");
@@ -870,370 +902,568 @@ $(".section-1").each(function(index) {
         height: 0,
         ease: "none"
     }, 0);
-}); /*
+});
 //Change background color animation
-
- ScrollTrigger.create({
-   
-    trigger: '.full-wrapper-bg.s-1',
-    markers:false,
-    start:"top 50%",
-    end:"bottom 0%", 
-     normalizeScroll: false, 
-  
-    onEnter: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-      checkTextWhite();
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     
-       
- 
-      
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-1",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
     },
-    
-    onLeaveBack: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-      checkTextWhite();
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-    
-   
- 
-    },
-  
-    
-  })
-  
-  ScrollTrigger.create({
-    
-    trigger: '.full-wrapper-bg.s-2',
-    markers:false,
-    start:"top 50%",
-    end:"bottom 0%", 
-     normalizeScroll: false, 
-  
-    onEnter: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-      checkTextBlack();
-      gsap.to('#open', { duration: 0.2, color: '#000000'})
-      gsap.to('#close', { duration: 0.2, color: '#000000'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-    
-          
- 
-    },
-    
-    onLeaveBack: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-      checkTextWhite();  
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
- 
- 
-      },
- 
-    })
-    
-    
-   ScrollTrigger.create({
-    
-    trigger: '.full-wrapper-bg.s-3',
-    markers:false,
-    start:"top 50%",
-    end:"bottom 0%", 
-     normalizeScroll: false, 
-  
-    onEnter: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-      checkTextWhite();
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-  
-      
-      
- 
-  
-    },
- 
-    onEnterBack: () =>{
-     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
- 
- 
-    },
-    onLeaveBack: () => {
-       gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-       checkTextBlack();
-       gsap.to('#open', { duration: 0.2, color: '#000000'})
-       gsap.to('#close', { duration: 0.2, color: '#000000'})
-       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-       gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-       
-      
-         
-    
- 
-    },
-  
-    
-  })
-  
-   ScrollTrigger.create({
-    
-    trigger: '.full-wrapper-bg.s-4',
-    markers:false,
-    start:"top 50%",
-    end:"bottom 0%", 
-     normalizeScroll: false, 
-  
-    onEnter: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-      checkTextBlack();
-      gsap.to('#open', { duration: 0.2, color: '#000000'})
-      gsap.to('#close', { duration: 0.2, color: '#000000'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-  
- 
- 
-    },
-    
-    onLeaveBack: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-      checkTextWhite();
-       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-  
- 
- 
-      },
- 
-    })
-    
-     
-   ScrollTrigger.create({
-    
-     trigger: '.full-wrapper-bg.s-5',
-     markers:false,
-     start:"top 50%",
-     end:"bottom 0%", 
-      normalizeScroll: false, 
-   
-     onEnter: () => {
-       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
-       checkTextWhite();
-       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
-       
-    
-       
-       
-   
-     },
-  
-     onEnterBack: () =>{
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-      gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
-  
-  
-     },
-     onLeaveBack: () => {
-        gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+    }
+});
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-2",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#F5F5F7"
+        });
         checkTextBlack();
-        gsap.to('#open', { duration: 0.2, color: '#000000'})
-        gsap.to('#close', { duration: 0.2, color: '#000000'})
-        gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-        gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-        gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-        gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#198780ba'})
-        
-          
-     
-  
-     },
-   
-     
-   })
-   
-
-
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#ffffff8C"
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+    }
+});
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-3",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+    },
+    onEnterBack: ()=>{
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#F5F5F7"
+        });
+        checkTextBlack();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#ffffff8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 0
+        });
+    }
+});
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-4",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#F5F5F7"
+        });
+        checkTextBlack();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#ffffff8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 0
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.15,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+    }
+});
+ScrollTrigger.create({
+    trigger: ".full-wrapper-bg.s-5",
+    markers: false,
+    start: "top 50%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.3,
+            backgroundColor: "#100E0E"
+        });
+        checkTextWhite();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100E0E8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#ffffff1a"
+        });
+    },
+    onEnterBack: ()=>{
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 1
+        });
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#ffffff1a"
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to(".main-section", {
+            duration: 0.3,
+            backgroundColor: "#F5F5F7"
+        });
+        checkTextBlack();
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#000000"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#ffffff8C"
+        });
+        gsap.to("#blur-section-2", {
+            duration: 0.2,
+            opacity: 0
+        });
+        gsap.to("#contact-form", {
+            duration: 0.2,
+            backgroundColor: "#198780ba"
+        });
+    }
+});
 //Trigger squares 
-var section0 = ('#section-0');
-
-gsap.fromTo(
-  document.querySelectorAll(".flex-card"),
-  { y: -10 ,
-  opacity:0,},
-  {
+var section0 = "#section-0";
+gsap.fromTo(document.querySelectorAll(".flex-card"), {
+    y: -10,
+    opacity: 0
+}, {
     y: 0,
-    delay:0.2,
-    opacity:1,
+    delay: 0.2,
+    opacity: 1,
     stagger: 0.3,
     scrollTrigger: {
-      trigger: section0,
-     //scrub: true,
-      start: "top 95%",
-      end: "bottom 0%",
-      markers: false,
-      toggleActions:  "play none none reverse"
+        trigger: section0,
+        //scrub: true,
+        start: "top 95%",
+        end: "bottom 0%",
+        markers: false,
+        toggleActions: "play none none reverse"
     }
-  }
-
-);
-
-
-
+});
 //trigger sections
 var scrollS1 = document.querySelector("#section-1");
 var scrollS2 = document.querySelector("#sticky-2");
-
-
-
 ScrollTrigger.create({
- 
-trigger: scrollS2,
-markers:false,
-start:"top 80%",
-end:"bottom 0%", 
- normalizeScroll: false, 
-
-onEnter: () => {
-  gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
-  gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
-
- 
-},
-
-onEnterBack: () =>{
-  gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
-  gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
-
-
-},
-
-  onLeave: () => {
-  gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
-  gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
-
-
-
-},
-onLeaveBack: () => {
-  gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
-  gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
-
-
-},
-
-
-})
-
-
+    trigger: scrollS2,
+    markers: false,
+    start: "top 80%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to("#main-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#left-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+        gsap.to("#right-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.6
+        });
+    },
+    onEnterBack: ()=>{
+        gsap.to("#main-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#left-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+        gsap.to("#right-img-2", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.6
+        });
+    },
+    onLeave: ()=>{
+        gsap.to("#main-img-2", {
+            y: 0,
+            x: -20,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#left-img-2", {
+            y: 30,
+            x: -10,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+        gsap.to("#right-img-2", {
+            y: 35,
+            x: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.6
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to("#main-img-2", {
+            y: 0,
+            x: -20,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#left-img-2", {
+            y: 30,
+            x: -10,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+        gsap.to("#right-img-2", {
+            y: 35,
+            x: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.6
+        });
+    }
+});
 ScrollTrigger.create({
- 
-trigger: scrollS1,
-markers:false,
-start:"top 80%",
-end:"bottom 0%", 
- normalizeScroll: false, 
-
-onEnter: () => {
-  gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
-
-},
-
-onEnterBack: () =>{
-  gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
-
-
-
-},
-
-  onLeave: () => {
-  gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
-
-
-},
-onLeaveBack: () => {
-  gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
-  gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
-
-},
-
-
-})
-
-var cases = ('.cases-wrapper')
-
-
-gsap.fromTo(
-  document.querySelector("#case-1"),
-  { xPercent: -20 ,
-  opacity:0,},
-  {
+    trigger: scrollS1,
+    markers: false,
+    start: "top 80%",
+    end: "bottom 0%",
+    normalizeScroll: false,
+    onEnter: ()=>{
+        gsap.to("#main-img-1", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#right-img-1", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+    },
+    onEnterBack: ()=>{
+        gsap.to("#main-img-1", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#right-img-1", {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+    },
+    onLeave: ()=>{
+        gsap.to("#main-img-1", {
+            y: 0,
+            x: 20,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#right-img-1", {
+            y: -10,
+            x: 35,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+    },
+    onLeaveBack: ()=>{
+        gsap.to("#main-img-1", {
+            y: 0,
+            x: 20,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.2
+        });
+        gsap.to("#right-img-1", {
+            y: -10,
+            x: 35,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut",
+            delay: 0.4
+        });
+    }
+});
+var cases = ".cases-wrapper";
+gsap.fromTo(document.querySelector("#case-1"), {
+    xPercent: -20,
+    opacity: 0
+}, {
     xPercent: 10,
-    delay:0.2,
-    opacity:1,
+    delay: 0.2,
+    opacity: 1,
     stagger: 0.3,
     scrollTrigger: {
-      trigger: cases,
-      scrub: true,
-      start: "top 95%",
-      end: "bottom 85%",
-      markers: false,
-      toggleActions:  "play none none reverse"
+        trigger: cases,
+        scrub: true,
+        start: "top 95%",
+        end: "bottom 85%",
+        markers: false,
+        toggleActions: "play none none reverse"
     }
-  }
-
-);
-gsap.fromTo(
-document.querySelector("#case-2"),
-{ xPercent: 20 ,
-opacity:0,},
-{
-  xPercent: -10,
-  delay:0.2,
-  opacity:1,
-  stagger: 0.8,
-  scrollTrigger: {
-    trigger: cases,
-    scrub: true,
-    start: "top 95%",
-    end: "bottom 85%",
-    markers: false,
-    toggleActions:  "play none none reverse"
-  }
-}
-
-);
-
-*/ 
+});
+gsap.fromTo(document.querySelector("#case-2"), {
+    xPercent: 20,
+    opacity: 0
+}, {
+    xPercent: -10,
+    delay: 0.2,
+    opacity: 1,
+    stagger: 0.8,
+    scrollTrigger: {
+        trigger: cases,
+        scrub: true,
+        start: "top 95%",
+        end: "bottom 85%",
+        markers: false,
+        toggleActions: "play none none reverse"
+    }
+});
 
 },{}]},["83yFc","kMQSJ"], "kMQSJ", "parcelRequire5054")
 
