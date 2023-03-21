@@ -2,37 +2,7 @@
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
-/*const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-  direction: 'vertical', // vertical, horizontal
-  gestureDirection: 'vertical', // vertical, horizontal, both
-  smooth: true,
-  mouseMultiplier: 1,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-})
 
-//get scroll value
-lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-  console.log({ scroll, limit, velocity, direction, progress })
-})
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-
-function checkScrollMenu(){
-if($('.menu-wrapper').hasClass('open')){
-      lenis.stop();
-    } else {
-     lenis.start();
-    }
-}
-checkScrollMenu();
-requestAnimationFrame(raf)*/
 
 //Typed text automatic
   var typed2 = new Typed('#typed', {
@@ -474,8 +444,6 @@ ham.addEventListener('click', () => {
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
-      
-   
       
       
   
