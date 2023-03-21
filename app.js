@@ -3,6 +3,38 @@
 const parceled = true;
 //Scroll smooth
 
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+  direction: 'vertical', // vertical, horizontal
+  gestureDirection: 'vertical', // vertical, horizontal, both
+  smooth: true,
+  mouseMultiplier: 1,
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+})
+
+//get scroll value
+lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+  console.log({ scroll, limit, velocity, direction, progress })
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+function checkScrollMenu(){
+if($('.menu-wrapper').hasClass('open')){
+      lenis.stop();
+    } else {
+     lenis.start();
+    }
+}
+checkScrollMenu();
+requestAnimationFrame(raf)
+
 
 //Typed text automatic
   var typed2 = new Typed('#typed', {
@@ -59,32 +91,32 @@ tl2.to(svg, {
 });
 
 gsap.to(l1, {
-  x:0,
-  y:0,
+	x:0,
+	y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l2, {
-  x:0,
-  y:0,
+	x:0,
+	y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l3, {
-  x:0,
-  y:0,
+	x:0,
+	y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l4, {
-  x:0,
-  y:0,
+	x:0,
+	y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
@@ -181,8 +213,8 @@ function checkBgMenu(){
       gsap.to('#close', { duration: 0.2, color: '#100E0E'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#100E0E'})
      
-        } else {
-   gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+     		} else {
+	 gsap.to('#open', { duration: 0.2, color: '#ffffff'})
          gsap.to('#close', { duration: 0.2, color: '#ffffff'})
          gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       }
@@ -212,60 +244,60 @@ function checkTextWhite(){
 
 
 tlMenu.to(menu, {
-  duration: 0.4,
-  opacity: 1,
-  width: '100%', 
-  x:0,
-  ease: 'power3.easeInOut',
+	duration: 0.4,
+	opacity: 1,
+	width: '100%', 
+	x:0,
+	ease: 'power3.easeInOut',
 })
 tlMenu.to(link1, {
 delay:0.1,
-  duration: 0.35,
+	duration: 0.35,
   y: 0,
-  opacity: 1,
-  stagger: 0.2,
-  ease: 'power3.easeInOut',
+	opacity: 1,
+	stagger: 0.2,
+	ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link2, {
 delay:0.15,
-  duration: 0.35,
-  y: 0,
-  opacity: 1,
-  stagger: 0.2,
-  ease: 'power3.easeInOut',
+	duration: 0.35,
+ 	y: 0,
+	opacity: 1,
+	stagger: 0.2,
+	ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link3, {
 delay:0.18,
-  duration: 0.35,
+	duration: 0.35,
   y: 0,
-  opacity: 1,
-  stagger: 0.2,
-  ease: 'power3.easeInOut',
+	opacity: 1,
+	stagger: 0.2,
+	ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link4, {
 delay:0.2,
-  duration: 0.35,
+	duration: 0.35,
   y: 0,
-  opacity: 1,
-  stagger: 0.2,
-  ease: 'power3.easeInOut',
+	opacity: 1,
+	stagger: 0.2,
+	ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.reverse();
 
 ham.addEventListener('click', () => {
-  tlMenu.reversed(!tlMenu.reversed());
+	tlMenu.reversed(!tlMenu.reversed());
   $('.menu-wrapper').toggleClass('open');
     checkBgMenu();
     if($('.menu-wrapper').hasClass('open')){
       $('body').addClass('no-scroll');
-     // checkScrollMenu();
+      checkScrollMenu();
     } else {
       $('body').removeClass('no-scroll');
-      //checkScrollMenu();
+      checkScrollMenu();
     }
 
 
@@ -444,6 +476,8 @@ ham.addEventListener('click', () => {
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
+      
+   
       
       
   
@@ -652,3 +686,8 @@ gsap.fromTo(
   }
 
 );
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
