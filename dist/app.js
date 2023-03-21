@@ -687,7 +687,12 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
 });
-ScrollTrigger.normalizeScroll(true);
+ScrollTrigger.normalizeScroll({
+    allowNestedScroll: true,
+    lockAxis: false,
+    momentum: (self)=>Math.min(3, self.velocityY / 1000),
+    type: "touch,wheel,pointer"
+});
 //round section 1 animation
 $(".section-1").each(function(index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
