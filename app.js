@@ -2,7 +2,7 @@
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
-const lenis = new Lenis({
+/*const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
   direction: 'vertical', // vertical, horizontal
@@ -32,7 +32,7 @@ if($('.menu-wrapper').hasClass('open')){
     }
 }
 checkScrollMenu();
-requestAnimationFrame(raf)
+requestAnimationFrame(raf)*/
 
 //Typed text automatic
   var typed2 = new Typed('#typed', {
@@ -292,10 +292,10 @@ ham.addEventListener('click', () => {
     checkBgMenu();
     if($('.menu-wrapper').hasClass('open')){
       $('body').addClass('no-scroll');
-      checkScrollMenu();
+     // checkScrollMenu();
     } else {
       $('body').removeClass('no-scroll');
-      checkScrollMenu();
+      //checkScrollMenu();
     }
 
 
