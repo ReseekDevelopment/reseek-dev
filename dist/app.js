@@ -880,7 +880,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -933,7 +933,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -986,7 +986,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -1053,7 +1053,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -1114,7 +1114,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.3,
