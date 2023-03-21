@@ -672,4 +672,3 @@ gsap.fromTo(
 
 );
 
-alert ('bitch');

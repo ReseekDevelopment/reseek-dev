@@ -1439,7 +1439,6 @@ gsap.fromTo(document.querySelector("#case-2"), {
         toggleActions: "play none none reverse"
     }
 });
-alert("bitch");
 
 },{}]},["e8zsm","igcvL"], "igcvL", "parcelRequire5054")
 
