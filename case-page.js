@@ -126,7 +126,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
   markers: false
 });
-ScrollTrigger.normalizeScroll(true);
+
 
 
 //Round element footer
