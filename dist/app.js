@@ -561,53 +561,6 @@ function hmrAccept(bundle, id) {
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t)=>Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smooth: true,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false
-});
-// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
-lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
-    console.log({
-        scroll,
-        limit,
-        velocity,
-        direction,
-        progress
-    });
-});
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-// Grab all elements that have a "data-target" attribute
-const scrollButtons = document.querySelectorAll("[data-target]");
-// For each element, listen to a "click" event
-scrollButtons.forEach((button)=>{
-    button.addEventListener("click", (e)=>{
-        e.preventDefault();
-        // get the DOM element by the ID (data-target value)
-        var target = button.dataset.target, $el = document.getElementById(target.replace("#", ""));
-        // Use lenis.scrollTo() to scroll the page to the right element
-        lenis.scrollTo($el, {
-            offset: 0,
-            immediate: false,
-            duration: 3,
-            easing: (x)=>x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2
-        });
-    });
-});
-requestAnimationFrame(raf);
-function checkScrollMenu() {
-    if ($(".menu-wrapper").hasClass("open")) lenis.stop();
-    else lenis.start();
-}
-checkScrollMenu();
 //Typed text automatic
 var typed2 = new Typed("#typed", {
     strings: [
@@ -876,13 +829,8 @@ ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
     $(".menu-wrapper").toggleClass("open");
     checkBgMenu();
-    if ($(".menu-wrapper").hasClass("open")) {
-        $("body").addClass("no-scroll");
-        checkScrollMenu();
-    } else {
-        $("body").removeClass("no-scroll");
-        checkScrollMenu();
-    }
+    if ($(".menu-wrapper").hasClass("open")) $("body").addClass("no-scroll");
+    else $("body").removeClass("no-scroll");
 });
 //Change background color animation
 ScrollTrigger.create({
