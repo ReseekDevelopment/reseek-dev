@@ -159,7 +159,7 @@ ScrollTrigger.defaults({
   markers: false
 });
 
-
+ScrollTrigger.normalizeScroll(true);
 
 
 //round section 1 animation
