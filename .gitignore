@@ -4,3 +4,5 @@
 # misc
 .parcel-cache/**
 .parcel-cache/data.mdb
+.pem
+setupProxy.js
