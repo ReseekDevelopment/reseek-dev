@@ -561,6 +561,37 @@ function hmrAccept(bundle, id) {
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t)=>Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical",
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false
+});
+//get scroll value
+lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
+    console.log({
+        scroll,
+        limit,
+        velocity,
+        direction,
+        progress
+    });
+});
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+function checkScrollMenu() {
+    if ($(".menu-wrapper").hasClass("open")) lenis.stop();
+    else lenis.start();
+}
+checkScrollMenu();
+requestAnimationFrame(raf);
 //Typed text automatic
 var typed2 = new Typed("#typed", {
     strings: [
@@ -830,8 +861,13 @@ ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
     $(".menu-wrapper").toggleClass("open");
     checkBgMenu();
-    if ($(".menu-wrapper").hasClass("open")) $("body").addClass("no-scroll");
-    else $("body").removeClass("no-scroll");
+    if ($(".menu-wrapper").hasClass("open")) {
+        $("body").addClass("no-scroll");
+        checkScrollMenu();
+    } else {
+        $("body").removeClass("no-scroll");
+        checkScrollMenu();
+    }
 });
 //Change background color animation
 ScrollTrigger.create({
