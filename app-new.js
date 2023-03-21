@@ -2,20 +2,18 @@
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
-
 const lenis = new Lenis({
   duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
   direction: 'vertical', // vertical, horizontal
   gestureDirection: 'vertical', // vertical, horizontal, both
   smooth: true,
-  mouseMultiplier: 1,
   smoothTouch: false,
   touchMultiplier: 2,
   infinite: false,
 })
 
-//get scroll value
+// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
 lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
   console.log({ scroll, limit, velocity, direction, progress })
 })
@@ -25,17 +23,38 @@ function raf(time) {
   requestAnimationFrame(raf)
 }
 
-function checkScrollMenu(){
-if($('.menu-wrapper').hasClass('open')){
-      lenis.stop();
-    } else {
-     lenis.start();
-    }
-}
-checkScrollMenu();
+// Grab all elements that have a "data-target" attribute
+const scrollButtons = document.querySelectorAll('[data-target]');
+
+// For each element, listen to a "click" event
+scrollButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    e.preventDefault();
+
+    // get the DOM element by the ID (data-target value)
+    var target = button.dataset.target,
+        $el = document.getElementById(target.replace('#', ''));
+
+    // Use lenis.scrollTo() to scroll the page to the right element
+    lenis.scrollTo($el, {
+      offset: 0, 
+      immediate: false,
+      duration: 3,
+      easing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2), // https://easings.net
+    });
+  });
+});
+
 requestAnimationFrame(raf)
 
-
+function checkScrollMenu(){
+  if($('.menu-wrapper').hasClass('open')){
+        lenis.stop();
+      } else {
+       lenis.start();
+      }
+  }
+  checkScrollMenu();
 //Typed text automatic
   var typed2 = new Typed('#typed', {
     strings: ['Web Solutions' ,'Web Development', 'Web Design'],
@@ -91,32 +110,32 @@ tl2.to(svg, {
 });
 
 gsap.to(l1, {
-	x:0,
-	y:0,
+  x:0,
+  y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l2, {
-	x:0,
-	y:0,
+  x:0,
+  y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l3, {
-	x:0,
-	y:0,
+  x:0,
+  y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
  
 });
 gsap.to(l4, {
-	x:0,
-	y:0,
+  x:0,
+  y:0,
   duration: 0.2,
   delay: 0.07,
  opacity:1,
@@ -139,6 +158,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
   markers: false
 });
+ScrollTrigger.normalizeScroll(true);
 
 
 
@@ -212,8 +232,8 @@ function checkBgMenu(){
       gsap.to('#close', { duration: 0.2, color: '#100E0E'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#100E0E'})
      
-     		} else {
-	 gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+        } else {
+   gsap.to('#open', { duration: 0.2, color: '#ffffff'})
          gsap.to('#close', { duration: 0.2, color: '#ffffff'})
          gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       }
@@ -243,52 +263,52 @@ function checkTextWhite(){
 
 
 tlMenu.to(menu, {
-	duration: 0.4,
-	opacity: 1,
-	width: '100%', 
-	x:0,
-	ease: 'power3.easeInOut',
+  duration: 0.4,
+  opacity: 1,
+  width: '100%', 
+  x:0,
+  ease: 'power3.easeInOut',
 })
 tlMenu.to(link1, {
 delay:0.1,
-	duration: 0.35,
+  duration: 0.35,
   y: 0,
-	opacity: 1,
-	stagger: 0.2,
-	ease: 'power3.easeInOut',
+  opacity: 1,
+  stagger: 0.2,
+  ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link2, {
 delay:0.15,
-	duration: 0.35,
- 	y: 0,
-	opacity: 1,
-	stagger: 0.2,
-	ease: 'power3.easeInOut',
+  duration: 0.35,
+  y: 0,
+  opacity: 1,
+  stagger: 0.2,
+  ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link3, {
 delay:0.18,
-	duration: 0.35,
+  duration: 0.35,
   y: 0,
-	opacity: 1,
-	stagger: 0.2,
-	ease: 'power3.easeInOut',
+  opacity: 1,
+  stagger: 0.2,
+  ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.to(link4, {
 delay:0.2,
-	duration: 0.35,
+  duration: 0.35,
   y: 0,
-	opacity: 1,
-	stagger: 0.2,
-	ease: 'power3.easeInOut',
+  opacity: 1,
+  stagger: 0.2,
+  ease: 'power3.easeInOut',
 }, "-=0.5");
 
 tlMenu.reverse();
 
 ham.addEventListener('click', () => {
-	tlMenu.reversed(!tlMenu.reversed());
+  tlMenu.reversed(!tlMenu.reversed());
   $('.menu-wrapper').toggleClass('open');
     checkBgMenu();
     if($('.menu-wrapper').hasClass('open')){
@@ -311,7 +331,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
@@ -347,7 +367,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
@@ -381,7 +401,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
@@ -427,7 +447,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
@@ -464,7 +484,7 @@ ham.addEventListener('click', () => {
     markers:false,
     start:"top 50%",
     end:"bottom 0%", 
-     normalizeScroll: true, 
+     normalizeScroll: false, 
   
     onEnter: () => {
       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
@@ -685,3 +705,4 @@ gsap.fromTo(
   }
 
 );
+

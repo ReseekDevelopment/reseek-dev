@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"e8zsm":[function(require,module,exports) {
+})({"83yFc":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = 50619;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "138b6a135baa4167";
+module.bundle.HMR_BUNDLE_ID = "96481de889a516fa";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,7 +556,7 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"igcvL":[function(require,module,exports) {
+},{}],"kMQSJ":[function(require,module,exports) {
 //Reseek - GSAP Animation
 //Made by Reseek
 const parceled = true;
@@ -567,12 +567,11 @@ const lenis = new Lenis({
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,
-    mouseMultiplier: 1,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false
 });
-//get scroll value
+// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
 lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
     console.log({
         scroll,
@@ -586,12 +585,29 @@ function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
+// Grab all elements that have a "data-target" attribute
+const scrollButtons = document.querySelectorAll("[data-target]");
+// For each element, listen to a "click" event
+scrollButtons.forEach((button)=>{
+    button.addEventListener("click", (e)=>{
+        e.preventDefault();
+        // get the DOM element by the ID (data-target value)
+        var target = button.dataset.target, $el = document.getElementById(target.replace("#", ""));
+        // Use lenis.scrollTo() to scroll the page to the right element
+        lenis.scrollTo($el, {
+            offset: 0,
+            immediate: false,
+            duration: 3,
+            easing: (x)=>x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2
+        });
+    });
+});
+requestAnimationFrame(raf);
 function checkScrollMenu() {
     if ($(".menu-wrapper").hasClass("open")) lenis.stop();
     else lenis.start();
 }
 checkScrollMenu();
-requestAnimationFrame(raf);
 //Typed text automatic
 var typed2 = new Typed("#typed", {
     strings: [
@@ -687,6 +703,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
 });
+ScrollTrigger.normalizeScroll(true);
 //round section 1 animation
 $(".section-1").each(function(index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
@@ -874,7 +891,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: true,
+    normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -927,7 +944,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: true,
+    normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -980,7 +997,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: true,
+    normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -1047,7 +1064,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: true,
+    normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.15,
@@ -1108,7 +1125,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 50%",
     end: "bottom 0%",
-    normalizeScroll: true,
+    normalizeScroll: false,
     onEnter: ()=>{
         gsap.to(".main-section", {
             duration: 0.3,
@@ -1447,6 +1464,6 @@ gsap.fromTo(document.querySelector("#case-2"), {
     }
 });
 
-},{}]},["e8zsm","igcvL"], "igcvL", "parcelRequire5054")
+},{}]},["83yFc","kMQSJ"], "kMQSJ", "parcelRequire5054")
 
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=app-new.js.map
