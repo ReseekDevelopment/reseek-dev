@@ -1,19 +1,20 @@
 //Reseek - GSAP Animation
 //Made by Reseek
-const parceled = true;
+const parceled = true
 //Scroll smooth
 const lenis = new Lenis({
   duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
   direction: 'vertical', // vertical, horizontal
   gestureDirection: 'vertical', // vertical, horizontal, both
   smooth: true,
+  mouseMultiplier: 1,
   smoothTouch: false,
   touchMultiplier: 2,
   infinite: false,
 })
 
-// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
+//get scroll value
 lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
   console.log({ scroll, limit, velocity, direction, progress })
 })
@@ -23,38 +24,16 @@ function raf(time) {
   requestAnimationFrame(raf)
 }
 
-// Grab all elements that have a "data-target" attribute
-const scrollButtons = document.querySelectorAll('[data-target]');
-
-// For each element, listen to a "click" event
-scrollButtons.forEach(button => {
-  button.addEventListener('click', e => {
-    e.preventDefault();
-
-    // get the DOM element by the ID (data-target value)
-    var target = button.dataset.target,
-        $el = document.getElementById(target.replace('#', ''));
-
-    // Use lenis.scrollTo() to scroll the page to the right element
-    lenis.scrollTo($el, {
-      offset: 0, 
-      immediate: false,
-      duration: 3,
-      easing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2), // https://easings.net
-    });
-  });
-});
-
+function checkScrollMenu(){
+if($('.menu-wrapper').hasClass('open')){
+      lenis.stop();
+    } else {
+     lenis.start();
+    }
+}
+checkScrollMenu();
 requestAnimationFrame(raf)
 
-function checkScrollMenu(){
-  if($('.menu-wrapper').hasClass('open')){
-        lenis.stop();
-      } else {
-       lenis.start();
-      }
-  }
-  checkScrollMenu();
 //Typed text automatic
   var typed2 = new Typed('#typed', {
     strings: ['Web Solutions' ,'Web Development', 'Web Design'],
@@ -160,8 +139,11 @@ ScrollTrigger.defaults({
 });
 ScrollTrigger.normalizeScroll(true);
 
+lenis.on('scroll', ScrollTrigger.update)
 
-
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
 //round section 1 animation
 $(".section-1").each(function (index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
@@ -192,7 +174,7 @@ $(".section-1").each(function (index) {
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "30% 100%",
+              end: "60% 100%",
               markers:false,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
@@ -334,26 +316,24 @@ ham.addEventListener('click', () => {
     normalizeScroll: false, 
  
    onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-    
+     checkTextWhite();
       
 
      
    },
    
    onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-   
+     checkTextWhite();
   
 
    },
@@ -370,25 +350,23 @@ ham.addEventListener('click', () => {
     normalizeScroll: false, 
  
    onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-     checkTextBlack();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
      gsap.to('#open', { duration: 0.2, color: '#000000'})
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-   
+     checkTextBlack();
          
 
    },
    
    onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();  
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-
+     checkTextWhite();  
 
      },
 
@@ -404,14 +382,13 @@ ham.addEventListener('click', () => {
     normalizeScroll: false, 
  
    onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
- 
+     checkTextWhite();
      
      
 
@@ -424,14 +401,13 @@ ham.addEventListener('click', () => {
 
    },
    onLeaveBack: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-      checkTextBlack();
+      gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
       gsap.to('#open', { duration: 0.2, color: '#000000'})
       gsap.to('#close', { duration: 0.2, color: '#000000'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
       gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-      
+      checkTextBlack();
      
         
    
@@ -450,27 +426,25 @@ ham.addEventListener('click', () => {
     normalizeScroll: false, 
  
    onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-     checkTextBlack();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
      gsap.to('#open', { duration: 0.2, color: '#000000'})
      gsap.to('#close', { duration: 0.2, color: '#000000'})
      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
      gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
- 
+     checkTextBlack();
 
 
    },
    
    onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
+     gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
- 
+      checkTextWhite();
 
 
      },
@@ -488,37 +462,29 @@ ham.addEventListener('click', () => {
   
     onEnter: () => {
       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
-      checkTextWhite();
       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
       gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-      gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
-      
-   
-      
+      checkTextWhite();
       
   
     },
  
     onEnterBack: () =>{
      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-     gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
  
  
     },
     onLeaveBack: () => {
        gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
-       checkTextBlack();
        gsap.to('#open', { duration: 0.2, color: '#000000'})
        gsap.to('#close', { duration: 0.2, color: '#000000'})
        gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
        gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
        gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#198780ba'})
-       
-         
+       checkTextBlack();
     
  
     },
@@ -706,3 +672,4 @@ gsap.fromTo(
 
 );
 
+alert ('bitch');
