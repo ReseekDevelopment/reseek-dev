@@ -10,7 +10,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ReseekDevelopment/reseek-dev.git"
-    
   },
   "author": "Roberth Perez",
   "license": "ISC",
@@ -19,6 +18,7 @@
   },
   "homepage": "https://github.com/ReseekDevelopment/reseek-dev#readme",
   "dependencies": {
+    "https-localhost": "^4.7.1",
     "parcel": "^2.8.3"
   }
 }
