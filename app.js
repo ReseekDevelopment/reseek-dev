@@ -136,7 +136,7 @@ tl2.to(".loader-wrap", {
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
-ScrollTrigger.normalizeScroll(true);
+//ScrollTrigger.normalizeScroll(true);
 ScrollTrigger.defaults({
   markers: false
 });
@@ -312,7 +312,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
@@ -348,7 +348,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
@@ -382,7 +382,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
@@ -428,7 +428,7 @@ ham.addEventListener('click', () => {
    markers:false,
    start:"top 50%",
    end:"bottom 0%", 
-    normalizeScroll: true, 
+    normalizeScroll: false, 
  
    onEnter: () => {
      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
@@ -465,7 +465,7 @@ ham.addEventListener('click', () => {
     markers:false,
     start:"top 50%",
     end:"bottom 0%", 
-     normalizeScroll: true, 
+     normalizeScroll: false, 
   
     onEnter: () => {
       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
