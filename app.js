@@ -2,7 +2,7 @@
 //Made by Reseek
 const parceled = true;
 //Scroll smooth
-
+/*
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -35,7 +35,7 @@ if($('.menu-wrapper').hasClass('open')){
 checkScrollMenu();
 requestAnimationFrame(raf)
 
-
+*/
 //Typed text automatic
   var typed2 = new Typed('#typed', {
     strings: ['Web Solutions' ,'Web Development', 'Web Design'],
@@ -294,10 +294,10 @@ ham.addEventListener('click', () => {
     checkBgMenu();
     if($('.menu-wrapper').hasClass('open')){
       $('body').addClass('no-scroll');
-      checkScrollMenu();
+    // checkScrollMenu();
     } else {
       $('body').removeClass('no-scroll');
-      checkScrollMenu();
+     // checkScrollMenu();
     }
 
 
@@ -499,8 +499,6 @@ ham.addEventListener('click', () => {
        gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
        gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#198780ba'})
        
-         
-    
  
     },
   
