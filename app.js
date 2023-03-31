@@ -135,8 +135,8 @@ tl2.to(".loader-wrap", {
 //Start GSAP and animate elements
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.config({ ignoreMobileResize: true });
-//ScrollTrigger.normalizeScroll(true);
+//ScrollTrigger.config({ ignoreMobileResize: true });
+ScrollTrigger.normalizeScroll(true);
 ScrollTrigger.defaults({
   markers: false
 });
