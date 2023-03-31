@@ -886,320 +886,209 @@ ham.addEventListener("click", ()=>{
     }
 });
 //Change background color animation
-ScrollTrigger.create({
-    trigger: ".full-wrapper-bg.s-1",
-    markers: false,
-    start: "top 50%",
-    end: "bottom 0%",
-    normalizeScroll: false,
-    onEnter: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
+/*
+ ScrollTrigger.create({
+   
+   trigger: '.full-wrapper-bg.s-1',
+   markers:false,
+   start:"top 50%",
+   end:"bottom 0%", 
+    normalizeScroll: false, 
+ 
+   onEnter: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
+     checkTextWhite();
+     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+    
+      
+
+     
+   },
+   
+   onLeaveBack: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
+     checkTextWhite();
+     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+   
+  
+
+   },
+ 
+   
+ })
+ 
+ ScrollTrigger.create({
+   
+   trigger: '.full-wrapper-bg.s-2',
+   markers:false,
+   start:"top 50%",
+   end:"bottom 0%", 
+    normalizeScroll: false, 
+ 
+   onEnter: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
+     checkTextBlack();
+     gsap.to('#open', { duration: 0.2, color: '#000000'})
+     gsap.to('#close', { duration: 0.2, color: '#000000'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+   
+         
+
+   },
+   
+   onLeaveBack: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
+     checkTextWhite();  
+     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+
+
+     },
+
+   })
+   
+   
+  ScrollTrigger.create({
+   
+   trigger: '.full-wrapper-bg.s-3',
+   markers:false,
+   start:"top 50%",
+   end:"bottom 0%", 
+    normalizeScroll: false, 
+ 
+   onEnter: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
+     checkTextWhite();
+     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+ 
+     
+     
+
+ 
+   },
+
+   onEnterBack: () =>{
+    gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+
+
+   },
+   onLeaveBack: () => {
+      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
+      checkTextBlack();
+      gsap.to('#open', { duration: 0.2, color: '#000000'})
+      gsap.to('#close', { duration: 0.2, color: '#000000'})
+      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
+      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+      gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
+      
+     
+        
+   
+
+   },
+ 
+   
+ })
+ 
+  ScrollTrigger.create({
+   
+   trigger: '.full-wrapper-bg.s-4',
+   markers:false,
+   start:"top 50%",
+   end:"bottom 0%", 
+    normalizeScroll: false, 
+ 
+   onEnter: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
+     checkTextBlack();
+     gsap.to('#open', { duration: 0.2, color: '#000000'})
+     gsap.to('#close', { duration: 0.2, color: '#000000'})
+     gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
+     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+     gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
+ 
+
+
+   },
+   
+   onLeaveBack: () => {
+     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
+     checkTextWhite();
+      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+ 
+
+
+     },
+
+   })
+   
+    
+  ScrollTrigger.create({
+   
+    trigger: '.full-wrapper-bg.s-5',
+    markers:false,
+    start:"top 50%",
+    end:"bottom 0%", 
+     normalizeScroll: false, 
+  
+    onEnter: () => {
+      gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
+      checkTextWhite();
+      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+      gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
+      
+   
+      
+      
+  
     },
-    onLeaveBack: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
-    }
-});
-ScrollTrigger.create({
-    trigger: ".full-wrapper-bg.s-2",
-    markers: false,
-    start: "top 50%",
-    end: "bottom 0%",
-    normalizeScroll: false,
-    onEnter: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#F5F5F7"
-        });
-        checkTextBlack();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#ffffff8C"
-        });
+ 
+    onEnterBack: () =>{
+     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
+     gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
+ 
+ 
     },
-    onLeaveBack: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
-    }
-});
-ScrollTrigger.create({
-    trigger: ".full-wrapper-bg.s-3",
-    markers: false,
-    start: "top 50%",
-    end: "bottom 0%",
-    normalizeScroll: false,
-    onEnter: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 1
-        });
+    onLeaveBack: () => {
+       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
+       checkTextBlack();
+       gsap.to('#open', { duration: 0.2, color: '#000000'})
+       gsap.to('#close', { duration: 0.2, color: '#000000'})
+       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
+       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+       gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
+       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#198780ba'})
+       
+         
+    
+ 
     },
-    onEnterBack: ()=>{
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 1
-        });
-    },
-    onLeaveBack: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#F5F5F7"
-        });
-        checkTextBlack();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#ffffff8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 0
-        });
-    }
-});
-ScrollTrigger.create({
-    trigger: ".full-wrapper-bg.s-4",
-    markers: false,
-    start: "top 50%",
-    end: "bottom 0%",
-    normalizeScroll: false,
-    onEnter: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#F5F5F7"
-        });
-        checkTextBlack();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#ffffff8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 0
-        });
-    },
-    onLeaveBack: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.15,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 1
-        });
-    }
-});
-ScrollTrigger.create({
-    trigger: ".full-wrapper-bg.s-5",
-    markers: false,
-    start: "top 50%",
-    end: "bottom 0%",
-    normalizeScroll: false,
-    onEnter: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.3,
-            backgroundColor: "#100E0E"
-        });
-        checkTextWhite();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#100E0E8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 1
-        });
-        gsap.to("#contact-form", {
-            duration: 0.2,
-            backgroundColor: "#ffffff1a"
-        });
-    },
-    onEnterBack: ()=>{
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 1
-        });
-        gsap.to("#contact-form", {
-            duration: 0.2,
-            backgroundColor: "#ffffff1a"
-        });
-    },
-    onLeaveBack: ()=>{
-        gsap.to(".main-section", {
-            duration: 0.3,
-            backgroundColor: "#F5F5F7"
-        });
-        checkTextBlack();
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#000000"
-        });
-        gsap.to(".background-blur-menu", {
-            duration: 0.2,
-            backgroundColor: "#ffffff8C"
-        });
-        gsap.to("#blur-section-2", {
-            duration: 0.2,
-            opacity: 0
-        });
-        gsap.to("#contact-form", {
-            duration: 0.2,
-            backgroundColor: "#198780ba"
-        });
-    }
-});
-// menu hide-show on scroll
+  
+    
+  })
+  
+ */ // menu hide-show on scroll
 var actionNav = gsap.to(".menu-wrapper", {
     y: "-=80",
     duration: 0.5,

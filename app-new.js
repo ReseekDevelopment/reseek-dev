@@ -324,7 +324,7 @@ ham.addEventListener('click', () => {
 
   
 //Change background color animation
-
+/*
  ScrollTrigger.create({
    
    trigger: '.full-wrapper-bg.s-1',
@@ -526,6 +526,7 @@ ham.addEventListener('click', () => {
     
   })
   
+ */ 
    
 // menu hide-show on scroll
 
