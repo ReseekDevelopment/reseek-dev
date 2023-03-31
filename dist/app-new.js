@@ -1137,7 +1137,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 80%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to("#main-img-2", {
             y: 0,
@@ -1248,7 +1248,7 @@ ScrollTrigger.create({
     markers: false,
     start: "top 80%",
     end: "bottom 0%",
-    normalizeScroll: false,
+    normalizeScroll: true,
     onEnter: ()=>{
         gsap.to("#main-img-1", {
             y: 0,
@@ -1337,7 +1337,8 @@ gsap.fromTo(document.querySelector("#case-1"), {
         start: "top 95%",
         end: "bottom 85%",
         markers: false,
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none reverse",
+        normalizeScroll: true
     }
 });
 gsap.fromTo(document.querySelector("#case-2"), {
@@ -1354,7 +1355,8 @@ gsap.fromTo(document.querySelector("#case-2"), {
         start: "top 95%",
         end: "bottom 85%",
         markers: false,
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none reverse",
+        normalizeScroll: true
     }
 });
 
