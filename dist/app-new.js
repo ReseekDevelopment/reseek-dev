@@ -564,22 +564,16 @@ const parceled = true;
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t)=>Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smooth: true,
+    orientation: "vertical",
+    gestureOrientation: "vertical",
+    smoothWheel: true,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false
 });
 // Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
 lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
-    console.log({
-        scroll,
-        limit,
-        velocity,
-        direction,
-        progress
-    });
+//console.log({ scroll, limit, velocity, direction, progress })
 });
 function raf(time) {
     lenis.raf(time);
@@ -623,6 +617,11 @@ var typed2 = new Typed("#typed", {
     loop: true,
     showCursor: false
 });
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.defaults({
+    markers: false
+});
+ScrollTrigger.normalizeScroll(true);
 //GSAP loader 
 const svg = document.getElementById("svg");
 const l1 = document.getElementById("l1");
@@ -699,11 +698,6 @@ tl2.to(".loader-wrap", {
     display: "none"
 });
 //Start GSAP and animate elements
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.defaults({
-    markers: false
-});
-ScrollTrigger.normalizeScroll(true);
 //round section 1 animation
 $(".section-1").each(function(index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
@@ -739,6 +733,32 @@ tlFoot.to(targetElementRound2, {
     height: 0,
     ease: "none"
 }, 0);
+// menu hide-show on scroll
+var actionNav = gsap.to(".menu-wrapper", {
+    y: "-=12vh",
+    duration: 0.5,
+    ease: "power2.in",
+    paused: true
+});
+let mwrapp = false;
+ScrollTrigger.create({
+    trigger: ".menu-wrapper",
+    start: "10px top",
+    end: 99999,
+    onUpdate: ({ progress , direction , isActive  })=>{
+        if (direction == -1) actionNav.reverse();
+        if (direction == 1 && !mwrapp) {
+            actionNav.play();
+            console.log(mwrapp);
+        } else if (direction == 1 && isActive == true && !mwrapp) {
+            actionNav.play();
+            console.log(mwrapp);
+        } else if (direction == -1 && mwrapp) {
+            actionNav.reverse();
+            console.log(mwrapp);
+        }
+    }
+});
 //menu trigger
 const ham = document.querySelector(".menu-button-wrapper");
 const menu = document.querySelector(".menu-links-wrapper");
@@ -878,10 +898,12 @@ ham.addEventListener("click", ()=>{
     $(".menu-wrapper").toggleClass("open");
     checkBgMenu();
     if ($(".menu-wrapper").hasClass("open")) {
+        mwrapp = true;
         $("body").addClass("no-scroll");
         checkScrollMenu();
     } else {
         $("body").removeClass("no-scroll");
+        mwrapp = false;
         checkScrollMenu();
     }
 });
@@ -1088,24 +1110,7 @@ ham.addEventListener("click", ()=>{
     
   })
   
- */ // menu hide-show on scroll
-var actionNav = gsap.to(".menu-wrapper", {
-    y: "-=80",
-    duration: 0.5,
-    ease: "power2.in",
-    paused: true
-});
-ScrollTrigger.create({
-    trigger: ".menu-wrapper",
-    start: "10px top",
-    end: 99999,
-    onUpdate: ({ progress , direction , isActive  })=>{
-        if (direction == -1) actionNav.reverse();
-        if (direction == 1) actionNav.play();
-        else if (direction == 1 && isActive == true) actionNav.play();
-    }
-});
-//Trigger squares 
+ */ //Trigger squares 
 var section0 = "#section-0";
 gsap.fromTo(document.querySelectorAll(".flex-card"), {
     y: -10,
