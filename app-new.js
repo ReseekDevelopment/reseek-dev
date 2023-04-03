@@ -1,6 +1,7 @@
 //Reseek - GSAP Animation
 //Made by Reseek
 const parceled = true;
+let bgMenu = false;
 //Scroll smooth
 const lenis = new Lenis({
   duration: 1.2,
@@ -247,25 +248,27 @@ var tlMenu = gsap.timeline({ paused: true });
 tlMenu.to(".overlay-blur", 0.2, {opacity:1, display:"flex"});
 
 function checkBgMenu(){
-     if(($('.main-section').css("background-color") == "rgb(16, 14, 14)") || ($('.main-section').css("background-color") == "#100E0E")){
-     
-       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
 
-     } else if(($('.main-section').css("background-color") == "rgb(245, 245, 247)") || ($('.main-section').css("background-color") == "#F5F5F7")) {
-     
+    if (bgMenu === true) {
      if(!$('.menu-wrapper').hasClass('open')){
       gsap.to('#open', { duration: 0.2, color: '#100E0E'})
       gsap.to('#close', { duration: 0.2, color: '#100E0E'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#100E0E'})
+      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
      
-        } else {
-   gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+      } else {
+         gsap.to('#open', { duration: 0.2, color: '#ffffff'})
          gsap.to('#close', { duration: 0.2, color: '#ffffff'})
          gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+         gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
       }
      
+     } else {
+      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
+       gsap.to('#close', { duration: 0.2, color: '#ffffff'})
+       gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
+       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+
      }
 };
 
@@ -335,10 +338,11 @@ delay:0.2,
 
 tlMenu.reverse();
 
+
 ham.addEventListener('click', () => {
   tlMenu.reversed(!tlMenu.reversed());
   $('.menu-wrapper').toggleClass('open');
-    checkBgMenu();
+   checkBgMenu();
     if($('.menu-wrapper').hasClass('open')){
       mwrapp = true;
       $('body').addClass('no-scroll');
@@ -351,6 +355,62 @@ ham.addEventListener('click', () => {
 
 
 });
+
+var white1 = document.querySelector("#section-white-1");
+var white2 = document.querySelector("#section-white-2");
+
+ScrollTrigger.create({
+   
+  trigger: white1,
+  markers:true,
+  start:"top 0%",
+  end:"bottom 0%", 
+   
+  onEnter: () => {
+  bgMenu = true;
+  checkBgMenu();
+  },
+  onEnterBack: () =>{
+    bgMenu = true;
+    checkBgMenu();
+  },
+  onLeave: () =>{
+    bgMenu = false;
+    checkBgMenu();
+  },
+  onLeaveBack: () =>{
+    bgMenu = false;
+    checkBgMenu();
+  },
+  
+})
+
+
+ScrollTrigger.create({
+   
+  trigger: white2,
+  markers:true,
+  start:"top 0%",
+  end:"bottom 0%", 
+   
+  onEnter: () => {
+  bgMenu = true;
+  checkBgMenu();
+  },
+  onEnterBack: () =>{
+    bgMenu = true;
+    checkBgMenu();
+  },
+  onLeave: () =>{
+    bgMenu = false;
+    checkBgMenu();
+  },
+  onLeaveBack: () =>{
+    bgMenu = false;
+    checkBgMenu();
+  },
+  
+})
 
   
 //Change background color animation
