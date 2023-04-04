@@ -19,32 +19,23 @@ lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
   //console.log({ scroll, limit, velocity, direction, progress })
 })
 
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    lenis.scrollTo(this.getAttribute('href'))
+  });
+})
+
+
+
+
 function raf(time) {
   lenis.raf(time)
   requestAnimationFrame(raf)
 }
 
 // Grab all elements that have a "data-target" attribute
-const scrollButtons = document.querySelectorAll('[data-target]');
-
-// For each element, listen to a "click" event
-scrollButtons.forEach(button => {
-  button.addEventListener('click', e => {
-    e.preventDefault();
-
-    // get the DOM element by the ID (data-target value)
-    var target = button.dataset.target,
-        $el = document.getElementById(target.replace('#', ''));
-
-    // Use lenis.scrollTo() to scroll the page to the right element
-    lenis.scrollTo($el, {
-      offset: 0, 
-      immediate: false,
-      duration: 3,
-      easing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2), // https://easings.net
-    });
-  });
-});
 
 requestAnimationFrame(raf)
 
@@ -76,7 +67,11 @@ function checkScrollMenu(){
     markers: false
   });
 
+  lenis.on('scroll', ScrollTrigger.update)
 
+  gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000)
+  })
 
 //GSAP loader 
 const svg = document.getElementById("svg");
@@ -194,7 +189,7 @@ $(".section-1").each(function (index) {
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "30% 100%",
+              end: "50% 100%",
               markers:false,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
@@ -336,6 +331,7 @@ delay:0.2,
   ease: 'power3.easeInOut',
 }, "-=0.5");
 
+
 tlMenu.reverse();
 
 
@@ -356,22 +352,41 @@ ham.addEventListener('click', () => {
 
 });
 
-var white1 = document.querySelector("#section-white-1");
+document.querySelectorAll('.link-menu-1').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    ham.click();
+  });
+})
+/*
+var white1 = document.querySelector(".full-wrapper-bg.s-2");
 var white2 = document.querySelector("#section-white-2");
+
+var tlM = gsap.timeline({
+  scrollTrigger: {
+    trigger: white1,
+     markers:true,
+    start: "0% 100%",
+    end: "100% 100%",
+
+  }
+});
+});
 
 ScrollTrigger.create({
    
   trigger: white1,
   markers:true,
-  start:"top 0%",
-  end:"bottom 0%", 
+  start:"top top",
+   end:"bottom 100%", 
+
    
   onEnter: () => {
   bgMenu = true;
   checkBgMenu();
+
   },
   onEnterBack: () =>{
-    bgMenu = true;
     checkBgMenu();
   },
   onLeave: () =>{
@@ -384,14 +399,16 @@ ScrollTrigger.create({
   },
   
 })
+
 
 
 ScrollTrigger.create({
    
   trigger: white2,
   markers:true,
-  start:"top 0%",
-  end:"bottom 0%", 
+  start:"top top",
+  end:"bottom 100%", 
+
    
   onEnter: () => {
   bgMenu = true;
@@ -412,7 +429,9 @@ ScrollTrigger.create({
   
 })
 
-  
+
+
+
 //Change background color animation
 /*
  ScrollTrigger.create({
@@ -450,40 +469,50 @@ ScrollTrigger.create({
  
    
  })
+
+
+  // your code here
+
+    // ....
  
+  
+
+let sections = $('#section-white-2');
+   
  ScrollTrigger.create({
    
-   trigger: '.full-wrapper-bg.s-2',
-   markers:false,
-   start:"top 50%",
-   end:"bottom 0%", 
-    normalizeScroll: false, 
+   trigger: sections,
+   markers:true,
+   start:"top 0%",
+   end:"bottom 100%", 
+   refreshPriority: 1,
  
    onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-     checkTextBlack();
-     gsap.to('#open', { duration: 0.2, color: '#000000'})
-     gsap.to('#close', { duration: 0.2, color: '#000000'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-   
+
+         
+   },
+
+   onEnterBack: () => {
+  
          
 
    },
    
-   onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();  
-     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+   onLeave: () => {
+
+
+
+     },
+     onLeaveBack: () => {
+
 
 
      },
 
    })
-   
+
+  
+
    
   ScrollTrigger.create({
    
@@ -776,3 +805,5 @@ gsap.fromTo(
   }
 
 );
+
+
