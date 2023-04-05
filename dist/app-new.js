@@ -902,280 +902,198 @@ gsap.fromTo(document.querySelectorAll(".flex-card"), {
         markers: false,
         toggleActions: "play none none reverse"
     }
-});
+}); /*
 //web section animation
 var scrollS1 = document.querySelector("#section-1");
 var scrollS2 = document.querySelector("#sticky-2");
+
+  
 ScrollTrigger.create({
-    trigger: scrollS2,
-    markers: false,
-    start: "top 80%",
-    end: "bottom 0%",
-    onEnter: ()=>{
-        gsap.to("#main-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#left-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-        gsap.to("#right-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.6
-        });
-    },
-    onEnterBack: ()=>{
-        gsap.to("#main-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#left-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-        gsap.to("#right-img-2", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.6
-        });
-    },
-    onLeave: ()=>{
-        gsap.to("#main-img-2", {
-            y: 0,
-            x: -20,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#left-img-2", {
-            y: 30,
-            x: -10,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-        gsap.to("#right-img-2", {
-            y: 35,
-            x: 0,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.6
-        });
-    },
-    onLeaveBack: ()=>{
-        gsap.to("#main-img-2", {
-            y: 0,
-            x: -20,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#left-img-2", {
-            y: 30,
-            x: -10,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-        gsap.to("#right-img-2", {
-            y: 35,
-            x: 0,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.6
-        });
-    }
-});
+   
+  trigger: scrollS2,
+  markers:false,
+  start:"top 80%",
+  end:"bottom 0%", 
+  normalizeScroll: true;
+
+  onEnter: () => {
+    gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
+    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
+   
+  },
+
+  onEnterBack: () =>{
+    gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut', delay: 0.4})
+    gsap.to('#right-img-2', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+  
+
+  },
+
+    onLeave: () => {
+    gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
+    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
+ 
+
+  },
+  onLeaveBack: () => {
+    gsap.to('#main-img-2', {  y: 0, x:-20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#left-img-2', {  y: 30, x:-10, opacity:0, duration: 0.5, ease: 'power3.easeInOut', delay:0.4})
+    gsap.to('#right-img-2', {  y: 35, x:0, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.6})
+
+
+  },
+
+  
+})
+
+ 
 ScrollTrigger.create({
-    trigger: scrollS1,
-    markers: false,
-    start: "top 80%",
-    end: "bottom 0%",
-    onEnter: ()=>{
-        gsap.to("#main-img-1", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#right-img-1", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-    },
-    onEnterBack: ()=>{
-        gsap.to("#main-img-1", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#right-img-1", {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-    },
-    onLeave: ()=>{
-        gsap.to("#main-img-1", {
-            y: 0,
-            x: 20,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#right-img-1", {
-            y: -10,
-            x: 35,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-    },
-    onLeaveBack: ()=>{
-        gsap.to("#main-img-1", {
-            y: 0,
-            x: 20,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.2
-        });
-        gsap.to("#right-img-1", {
-            y: -10,
-            x: 35,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.easeInOut",
-            delay: 0.4
-        });
-    }
-});
+   
+  trigger: scrollS1,
+  markers:false,
+  start:"top 80%",
+  end:"bottom 0%", 
+
+  onEnter: () => {
+    gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  },
+
+  onEnterBack: () =>{
+    gsap.to('#main-img-1', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', { y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  
+
+  },
+
+    onLeave: () => {
+    gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+
+  },
+  onLeaveBack: () => {
+    gsap.to('#main-img-1', {  y: 0, x:20, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
+    gsap.to('#right-img-1', {  y: -10, x:35, opacity:0, duration: 0.5, ease: 'power3.easeInOut',delay:0.4})
+
+  },
+
+  
+})
+
 //cases animation
-var cases = ".cases-wrapper";
-function casesDesktop() {
-    gsap.fromTo(document.querySelector("#case-1"), {
-        xPercent: -20,
-        opacity: 0
-    }, {
-        xPercent: 10,
-        delay: 0.2,
-        opacity: 1,
-        stagger: 0.3,
-        scrollTrigger: {
-            trigger: cases,
-            scrub: true,
-            start: "top 95%",
-            end: "bottom 85%",
-            markers: false,
-            toggleActions: "play none none reverse"
-        }
-    });
-    gsap.fromTo(document.querySelector("#case-2"), {
-        xPercent: 20,
-        opacity: 0
-    }, {
-        xPercent: -10,
-        delay: 0.2,
-        opacity: 1,
-        stagger: 0.8,
-        scrollTrigger: {
-            trigger: cases,
-            scrub: true,
-            start: "top 95%",
-            end: "bottom 85%",
-            markers: false,
-            toggleActions: "play none none reverse"
-        }
-    });
-}
-function casesMobil() {
-    gsap.fromTo(document.querySelector("#case-1"), {
-        xPercent: -20,
-        opacity: 0
-    }, {
-        xPercent: 25,
-        delay: 0.2,
-        opacity: 1,
-        stagger: 0.3,
-        scrollTrigger: {
-            trigger: cases,
-            scrub: true,
-            start: "top 95%",
-            end: "bottom 85%",
-            markers: false,
-            toggleActions: "play none none reverse"
-        }
-    });
-    gsap.fromTo(document.querySelector("#case-2"), {
-        xPercent: 20,
-        opacity: 0
-    }, {
-        xPercent: -25,
-        delay: 0.2,
-        opacity: 1,
-        stagger: 0.8,
-        scrollTrigger: {
-            trigger: cases,
-            scrub: true,
-            start: "top 95%",
-            end: "bottom 85%",
-            markers: false,
-            toggleActions: "play none none reverse"
-        }
-    });
-}
-ScrollTrigger.matchMedia({
-    "(min-width:768px)": function() {
-        casesDesktop();
-    },
-    "(max-width:767px)": function() {
-        casesMobil();
+var cases = ('.cases-wrapper')
+
+function casesDesktop(){
+  gsap.fromTo(
+    document.querySelector("#case-1"),
+    { xPercent: -20 ,
+    opacity:0,},
+    {
+      xPercent: 10,
+      delay:0.2,
+      opacity:1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: cases,
+        scrub: true,
+        start: "top 95%",
+        end: "bottom 85%",
+        markers: false,
+        toggleActions:  "play none none reverse"
+      }
     }
-});
+  
+);
+gsap.fromTo(
+  document.querySelector("#case-2"),
+  { xPercent: 20 ,
+  opacity:0,},
+  {
+    xPercent: -10,
+    delay:0.2,
+    opacity:1,
+    stagger: 0.8,
+    scrollTrigger: {
+      trigger: cases,
+      scrub: true,
+      start: "top 95%",
+      end: "bottom 85%",
+      markers: false,
+      toggleActions:  "play none none reverse"
+    }
+  }
+
+);
+
+}
+
+function casesMobil(){
+  gsap.fromTo(
+    document.querySelector("#case-1"),
+    { xPercent: -20 ,
+    opacity:0,},
+    {
+      xPercent: 25,
+      delay:0.2,
+      opacity:1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: cases,
+        scrub: true,
+        start: "top 95%",
+        end: "bottom 85%",
+        markers: false,
+        toggleActions:  "play none none reverse"
+      }
+    }
+  
+);
+gsap.fromTo(
+  document.querySelector("#case-2"),
+  { xPercent: 20 ,
+  opacity:0,},
+  {
+    xPercent: -25,
+    delay:0.2,
+    opacity:1,
+    stagger: 0.8,
+    scrollTrigger: {
+      trigger: cases,
+      scrub: true,
+      start: "top 95%",
+      end: "bottom 85%",
+      markers: false,
+      toggleActions:  "play none none reverse"
+    }
+  }
+
+);
+
+}
+
+ScrollTrigger.matchMedia({
+  '(min-width:768px)':function(){
+  casesDesktop();
+  },
+
+  '(max-width:767px)':function(){
+    casesMobil();
+    
+  }
+})
+
+
+
+
+*/ 
 
 },{}]},["83yFc","kMQSJ"], "kMQSJ", "parcelRequire5054")
 

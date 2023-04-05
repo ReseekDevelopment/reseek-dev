@@ -374,7 +374,7 @@ var section0 = ('#section-0');
 );
 
 
-
+/*
 //web section animation
 var scrollS1 = document.querySelector("#section-1");
 var scrollS2 = document.querySelector("#sticky-2");
@@ -386,6 +386,7 @@ ScrollTrigger.create({
   markers:false,
   start:"top 80%",
   end:"bottom 0%", 
+  normalizeScroll: true;
 
   onEnter: () => {
     gsap.to('#main-img-2', {  y: 0, x:0, opacity:1, duration: 0.5, ease: 'power3.easeInOut',delay: 0.2})
@@ -564,5 +565,5 @@ ScrollTrigger.matchMedia({
 
 
 
-
+*/
 
