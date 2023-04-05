@@ -717,7 +717,7 @@ let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "60% 100%",
+        end: "55% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
@@ -741,16 +741,9 @@ ScrollTrigger.create({
     end: 99999,
     onUpdate: ({ progress , direction , isActive  })=>{
         if (direction == -1) actionNav.reverse();
-        if (direction == 1 && !mwrapp) {
-            actionNav.play();
-            console.log(mwrapp);
-        } else if (direction == 1 && isActive == true && !mwrapp) {
-            actionNav.play();
-            console.log(mwrapp);
-        } else if (direction == -1 && mwrapp) {
-            actionNav.reverse();
-            console.log(mwrapp);
-        }
+        if (direction == 1 && !mwrapp) actionNav.play();
+        else if (direction == 1 && isActive == true && !mwrapp) actionNav.play();
+        else if (direction == -1 && mwrapp) actionNav.reverse();
     }
 });
 //menu trigger
@@ -760,6 +753,7 @@ const link1 = document.querySelector(".link-menu-1.l1");
 const link2 = document.querySelectorAll(".link-menu-1.l2");
 const link3 = document.querySelectorAll(".link-menu-1.l3");
 const link4 = document.querySelectorAll(".link-menu-1.l4");
+const link5 = document.querySelectorAll(".link-menu-1.l5");
 var tlMenu = gsap.timeline({
     paused: true
 });
@@ -784,7 +778,7 @@ function checkBgMenu() {
             });
             gsap.to(".background-blur-menu", {
                 duration: 0.2,
-                backgroundColor: "#ffffff8C"
+                backgroundColor: "#ffffff59"
             });
         } else {
             gsap.to("#open", {
@@ -801,7 +795,7 @@ function checkBgMenu() {
             });
             gsap.to(".background-blur-menu", {
                 duration: 0.2,
-                backgroundColor: "#100E0E8C"
+                backgroundColor: "#100e0e59"
             });
         }
     } else {
@@ -819,46 +813,11 @@ function checkBgMenu() {
         });
         gsap.to(".background-blur-menu", {
             duration: 0.2,
-            backgroundColor: "#100E0E8C"
+            backgroundColor: "#100e0e59"
         });
     }
 }
-function checkTextWhite() {
-    gsap.to("#header-section-2", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#txt-section-2", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#header-section-1", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#txt-section-1", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-}
-function checkTextBlack() {
-    gsap.to("#header-section-2", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#txt-section-2", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#header-section-1", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#txt-section-1", {
-        duration: 0.2,
-        color: "#000000"
-    });
-}
+// menu animation timeline
 tlMenu.to(menu, {
     duration: 0.4,
     opacity: 1,
@@ -898,6 +857,14 @@ tlMenu.to(link4, {
     stagger: 0.2,
     ease: "power3.easeInOut"
 }, "-=0.5");
+tlMenu.to(link5, {
+    delay: 0.22,
+    duration: 0.35,
+    y: 0,
+    opacity: 1,
+    stagger: 0.2,
+    ease: "power3.easeInOut"
+}, "-=0.5");
 tlMenu.reverse();
 ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
@@ -919,294 +886,7 @@ document.querySelectorAll(".link-menu-1").forEach((link)=>{
         ham.click();
     });
 });
-/*
-var white1 = document.querySelector(".full-wrapper-bg.s-2");
-var white2 = document.querySelector("#section-white-2");
-
-var tlM = gsap.timeline({
-  scrollTrigger: {
-    trigger: white1,
-     markers:true,
-    start: "0% 100%",
-    end: "100% 100%",
-
-  }
-});
-});
-
-ScrollTrigger.create({
-   
-  trigger: white1,
-  markers:true,
-  start:"top top",
-   end:"bottom 100%", 
-
-   
-  onEnter: () => {
-  bgMenu = true;
-  checkBgMenu();
-
-  },
-  onEnterBack: () =>{
-    checkBgMenu();
-  },
-  onLeave: () =>{
-    bgMenu = false;
-    checkBgMenu();
-  },
-  onLeaveBack: () =>{
-    bgMenu = false;
-    checkBgMenu();
-  },
-  
-})
-
-
-
-ScrollTrigger.create({
-   
-  trigger: white2,
-  markers:true,
-  start:"top top",
-  end:"bottom 100%", 
-
-   
-  onEnter: () => {
-  bgMenu = true;
-  checkBgMenu();
-  },
-  onEnterBack: () =>{
-    bgMenu = true;
-    checkBgMenu();
-  },
-  onLeave: () =>{
-    bgMenu = false;
-    checkBgMenu();
-  },
-  onLeaveBack: () =>{
-    bgMenu = false;
-    checkBgMenu();
-  },
-  
-})
-
-
-
-
-//Change background color animation
-/*
- ScrollTrigger.create({
-   
-   trigger: '.full-wrapper-bg.s-1',
-   markers:false,
-   start:"top 50%",
-   end:"bottom 0%", 
-    normalizeScroll: false, 
- 
-   onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
-     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-    
-      
-
-     
-   },
-   
-   onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
-     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-   
-  
-
-   },
- 
-   
- })
-
-
-  // your code here
-
-    // ....
- 
-  
-
-let sections = $('#section-white-2');
-   
- ScrollTrigger.create({
-   
-   trigger: sections,
-   markers:true,
-   start:"top 0%",
-   end:"bottom 100%", 
-   refreshPriority: 1,
- 
-   onEnter: () => {
-
-         
-   },
-
-   onEnterBack: () => {
-  
-         
-
-   },
-   
-   onLeave: () => {
-
-
-
-     },
-     onLeaveBack: () => {
-
-
-
-     },
-
-   })
-
-  
-
-   
-  ScrollTrigger.create({
-   
-   trigger: '.full-wrapper-bg.s-3',
-   markers:false,
-   start:"top 50%",
-   end:"bottom 0%", 
-    normalizeScroll: false, 
- 
-   onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
-     gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-     gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
- 
-     
-     
-
- 
-   },
-
-   onEnterBack: () =>{
-    gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-
-
-   },
-   onLeaveBack: () => {
-      gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-      checkTextBlack();
-      gsap.to('#open', { duration: 0.2, color: '#000000'})
-      gsap.to('#close', { duration: 0.2, color: '#000000'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-      
-     
-        
-   
-
-   },
- 
-   
- })
- 
-  ScrollTrigger.create({
-   
-   trigger: '.full-wrapper-bg.s-4',
-   markers:false,
-   start:"top 50%",
-   end:"bottom 0%", 
-    normalizeScroll: false, 
- 
-   onEnter: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#F5F5F7'})
-     checkTextBlack();
-     gsap.to('#open', { duration: 0.2, color: '#000000'})
-     gsap.to('#close', { duration: 0.2, color: '#000000'})
-     gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-     gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-     gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
- 
-
-
-   },
-   
-   onLeaveBack: () => {
-     gsap.to('.main-section', { duration: 0.15, backgroundColor: '#100E0E'})
-     checkTextWhite();
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
- 
-
-
-     },
-
-   })
-   
-    
-  ScrollTrigger.create({
-   
-    trigger: '.full-wrapper-bg.s-5',
-    markers:false,
-    start:"top 50%",
-    end:"bottom 0%", 
-     normalizeScroll: false, 
-  
-    onEnter: () => {
-      gsap.to('.main-section', { duration: 0.3, backgroundColor: '#100E0E'})
-      checkTextWhite();
-      gsap.to('#open', { duration: 0.2, color: '#ffffff'})
-      gsap.to('#close', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
-      gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-      gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
-      
-   
-      
-      
-  
-    },
- 
-    onEnterBack: () =>{
-     gsap.to('#blur-section-2', { duration: 0.2, opacity: 1})
-     gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#ffffff1a'})
- 
- 
-    },
-    onLeaveBack: () => {
-       gsap.to('.main-section', { duration: 0.3, backgroundColor: '#F5F5F7'})
-       checkTextBlack();
-       gsap.to('#open', { duration: 0.2, color: '#000000'})
-       gsap.to('#close', { duration: 0.2, color: '#000000'})
-       gsap.to('.logo-svg', { duration: 0.2, color: '#000000'})
-       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
-       gsap.to('#blur-section-2', { duration: 0.2, opacity: 0})
-       gsap.to('#contact-form', { duration: 0.2, backgroundColor: '#198780ba'})
-       
-         
-    
- 
-    },
-  
-    
-  })
-  
- */ //Trigger squares 
+//Trigger squares 
 var section0 = "#section-0";
 gsap.fromTo(document.querySelectorAll(".flex-card"), {
     y: -10,
@@ -1225,7 +905,7 @@ gsap.fromTo(document.querySelectorAll(".flex-card"), {
         toggleActions: "play none none reverse"
     }
 });
-//trigger sections
+//web section animation
 var scrollS1 = document.querySelector("#section-1");
 var scrollS2 = document.querySelector("#sticky-2");
 ScrollTrigger.create({
@@ -1416,39 +1096,86 @@ ScrollTrigger.create({
         });
     }
 });
+//cases animation
 var cases = ".cases-wrapper";
-gsap.fromTo(document.querySelector("#case-1"), {
-    xPercent: -20,
-    opacity: 0
-}, {
-    xPercent: 10,
-    delay: 0.2,
-    opacity: 1,
-    stagger: 0.3,
-    scrollTrigger: {
-        trigger: cases,
-        scrub: true,
-        start: "top 95%",
-        end: "bottom 85%",
-        markers: false,
-        toggleActions: "play none none reverse"
-    }
-});
-gsap.fromTo(document.querySelector("#case-2"), {
-    xPercent: 20,
-    opacity: 0
-}, {
-    xPercent: -10,
-    delay: 0.2,
-    opacity: 1,
-    stagger: 0.8,
-    scrollTrigger: {
-        trigger: cases,
-        scrub: true,
-        start: "top 95%",
-        end: "bottom 85%",
-        markers: false,
-        toggleActions: "play none none reverse"
+function casesDesktop() {
+    gsap.fromTo(document.querySelector("#case-1"), {
+        xPercent: -20,
+        opacity: 0
+    }, {
+        xPercent: 10,
+        delay: 0.2,
+        opacity: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: cases,
+            scrub: true,
+            start: "top 95%",
+            end: "bottom 85%",
+            markers: false,
+            toggleActions: "play none none reverse"
+        }
+    });
+    gsap.fromTo(document.querySelector("#case-2"), {
+        xPercent: 20,
+        opacity: 0
+    }, {
+        xPercent: -10,
+        delay: 0.2,
+        opacity: 1,
+        stagger: 0.8,
+        scrollTrigger: {
+            trigger: cases,
+            scrub: true,
+            start: "top 95%",
+            end: "bottom 85%",
+            markers: false,
+            toggleActions: "play none none reverse"
+        }
+    });
+}
+function casesMobil() {
+    gsap.fromTo(document.querySelector("#case-1"), {
+        xPercent: -20,
+        opacity: 0
+    }, {
+        xPercent: 25,
+        delay: 0.2,
+        opacity: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: cases,
+            scrub: true,
+            start: "top 95%",
+            end: "bottom 85%",
+            markers: false,
+            toggleActions: "play none none reverse"
+        }
+    });
+    gsap.fromTo(document.querySelector("#case-2"), {
+        xPercent: 20,
+        opacity: 0
+    }, {
+        xPercent: -25,
+        delay: 0.2,
+        opacity: 1,
+        stagger: 0.8,
+        scrollTrigger: {
+            trigger: cases,
+            scrub: true,
+            start: "top 95%",
+            end: "bottom 85%",
+            markers: false,
+            toggleActions: "play none none reverse"
+        }
+    });
+}
+ScrollTrigger.matchMedia({
+    "(min-width:768px)": function() {
+        casesDesktop();
+    },
+    "(max-width:767px)": function() {
+        casesMobil();
     }
 });
 
