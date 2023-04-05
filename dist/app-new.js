@@ -594,12 +594,9 @@ function checkScrollMenu() {
 }
 checkScrollMenu();
 //Typed text automatic
-var typed2 = new Typed("#typed", {
-    strings: [
-        "Web Solutions",
-        "Web Development",
-        "Web Design"
-    ],
+/*
+  var typed2 = new Typed('#typed', {
+    strings: ['Web Solutions' ,'Web Development', 'Web Design'],
     typeSpeed: 70,
     backSpeed: 30,
     startDelay: 600,
@@ -607,8 +604,9 @@ var typed2 = new Typed("#typed", {
     fadeOut: true,
     loop: true,
     showCursor: false
-});
-gsap.registerPlugin(ScrollTrigger);
+  });
+  
+*/ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
 });
