@@ -48,7 +48,7 @@ function checkScrollMenu(){
   }
   checkScrollMenu();
 //Typed text automatic
-/*
+
   var typed2 = new Typed('#typed', {
     strings: ['Web Solutions' ,'Web Development', 'Web Design'],
     typeSpeed: 70,
@@ -60,7 +60,7 @@ function checkScrollMenu(){
     showCursor: false
   });
   
-*/
+
 
   gsap.registerPlugin(ScrollTrigger);
 
