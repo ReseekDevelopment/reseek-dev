@@ -48,6 +48,7 @@ function checkScrollMenu(){
   }
   checkScrollMenu();
 //Typed text automatic
+
   var typed2 = new Typed('#typed', {
     strings: ['Web Solutions' ,'Web Development', 'Web Design'],
     typeSpeed: 70,
@@ -245,20 +246,20 @@ function checkBgMenu(){
       gsap.to('#open', { duration: 0.2, color: '#100E0E'})
       gsap.to('#close', { duration: 0.2, color: '#100E0E'})
       gsap.to('.logo-svg', { duration: 0.2, color: '#100E0E'})
-      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff8C'})
+      gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#ffffff59'})
      
       } else {
          gsap.to('#open', { duration: 0.2, color: '#ffffff'})
          gsap.to('#close', { duration: 0.2, color: '#ffffff'})
          gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-         gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+         gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100e0e59'})
       }
      
      } else {
       gsap.to('#open', { duration: 0.2, color: '#ffffff'})
        gsap.to('#close', { duration: 0.2, color: '#ffffff'})
        gsap.to('.logo-svg', { duration: 0.2, color: '#ffffff'})
-       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100E0E8C'})
+       gsap.to('.background-blur-menu', { duration: 0.2, backgroundColor: '#100e0e59'})
 
      }
 };
@@ -317,6 +318,7 @@ tlMenu.to(link5, {
     ease: 'power3.easeInOut',
   }, "-=0.5");
 
+
 tlMenu.reverse();
 
 
@@ -345,48 +347,3 @@ document.querySelectorAll('.link-menu-1').forEach(link => {
 })
 
    
-
-// Animations cases
-/*
-const hero = $('#hero-section');
-var txtHero = $('.text-case-h1');
-var txtHero2 = $('.text-hero');
-var bttnHero = $('.case-button');
-var imgHero = $('.img-c');
-
-
-let tlHero = gsap.timeline({
-  scrollTrigger: {
-    trigger: hero,
-    start: "70% 100%",
-    end: "90% 100%",
-    markers:false,
-    scrub: 0,
-    toggleActions: "restar pause reverse pause",
-  }
-});
-tlHero.to(txtHero, {
-  x: 0,
-  scaleX:1,
-  scaleY:1,
-  ease: "none"
-}, 0);
-
-tlHero.to(txtHero2, {
-    opacity: 1,
-    delay:0.5,
-    ease: "none"
-  }, 0);
-  tlHero.to(bttnHero, {
-    opacity: 1,
-    delay:0.5,
-    ease: "none"
-  }, 0);
-
-  tlHero.to(imgHero, {
-    x: 0,
-    delay:0.5,
-    ease: "none"
-  }, 0);
-
-*/

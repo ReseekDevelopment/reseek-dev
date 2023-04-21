@@ -560,38 +560,48 @@ function hmrAccept(bundle, id) {
 //Reseek - GSAP Animation
 //Made by Reseek
 const parceled = true;
+let bgMenu = false;
 //Scroll smooth
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t)=>Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smooth: true,
-    mouseMultiplier: 1,
+    orientation: "vertical",
+    gestureOrientation: "vertical",
+    smoothWheel: true,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false
 });
-//get scroll value
+// Get scroll value. This is just for testing purposes. Delete this if you're not using the scroll value for anything.
 lenis.on("scroll", ({ scroll , limit , velocity , direction , progress  })=>{
-    console.log({
-        scroll,
-        limit,
-        velocity,
-        direction,
-        progress
+//console.log({ scroll, limit, velocity, direction, progress })
+});
+document.querySelectorAll('a[href^="#"]').forEach((anchor)=>{
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        lenis.scrollTo(this.getAttribute("href"));
     });
 });
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
+// Grab all elements that have a "data-target" attribute
+requestAnimationFrame(raf);
 function checkScrollMenu() {
     if ($(".menu-wrapper").hasClass("open")) lenis.stop();
     else lenis.start();
 }
 checkScrollMenu();
-requestAnimationFrame(raf);
+//Typed text automatic
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.defaults({
+    markers: false
+});
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000);
+});
 //GSAP loader 
 const svg = document.getElementById("svg");
 const l1 = document.getElementById("l1");
@@ -668,18 +678,34 @@ tl2.to(".loader-wrap", {
     display: "none"
 });
 //Start GSAP and animate elements
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.defaults({
-    markers: false
-});
-//Round element footer
+//round section 1 animation
+/*$(".section-1").each(function (index) {
+    let targetElementRound = $(".section-1-round .round-wrapp");
+    const section1 = $(this);
+    
+    let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section1,
+          start: "0% 100%",
+          end: "5% 100%",
+          scrub: 0,
+          toggleActions: "restar pause reverse pause",
+        }
+      });
+      tl.to(targetElementRound, {
+        height: 0,
+        ease: "none"
+      }, 0);
+      
+      });
+    */ //Round element footer
 let targetElementRound2 = $(".footer-round .round-wrapp-foot");
 const footerRound = $("#footer-w");
 let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "30% 100%",
+        end: "55% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
@@ -689,6 +715,25 @@ tlFoot.to(targetElementRound2, {
     height: 0,
     ease: "none"
 }, 0);
+// menu hide-show on scroll
+var actionNav = gsap.to(".menu-wrapper", {
+    y: "-=12vh",
+    duration: 0.5,
+    ease: "power2.in",
+    paused: true
+});
+let mwrapp = false;
+ScrollTrigger.create({
+    trigger: ".menu-wrapper",
+    start: "10px top",
+    end: 99999,
+    onUpdate: ({ progress , direction , isActive  })=>{
+        if (direction == -1) actionNav.reverse();
+        if (direction == 1 && !mwrapp) actionNav.play();
+        else if (direction == 1 && isActive == true && !mwrapp) actionNav.play();
+        else if (direction == -1 && mwrapp) actionNav.reverse();
+    }
+});
 //menu trigger
 const ham = document.querySelector(".menu-button-wrapper");
 const menu = document.querySelector(".menu-links-wrapper");
@@ -696,6 +741,7 @@ const link1 = document.querySelector(".link-menu-1.l1");
 const link2 = document.querySelectorAll(".link-menu-1.l2");
 const link3 = document.querySelectorAll(".link-menu-1.l3");
 const link4 = document.querySelectorAll(".link-menu-1.l4");
+const link5 = document.querySelectorAll(".link-menu-1.l5");
 var tlMenu = gsap.timeline({
     paused: true
 });
@@ -704,20 +750,7 @@ tlMenu.to(".overlay-blur", 0.2, {
     display: "flex"
 });
 function checkBgMenu() {
-    if ($(".main-section").css("background-color") == "rgb(16, 14, 14)" || $(".main-section").css("background-color") == "#100E0E") {
-        gsap.to("#open", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to("#close", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-        gsap.to(".logo-svg", {
-            duration: 0.2,
-            color: "#ffffff"
-        });
-    } else if ($(".main-section").css("background-color") == "rgb(245, 245, 247)" || $(".main-section").css("background-color") == "#F5F5F7") {
+    if (bgMenu === true) {
         if (!$(".menu-wrapper").hasClass("open")) {
             gsap.to("#open", {
                 duration: 0.2,
@@ -730,6 +763,10 @@ function checkBgMenu() {
             gsap.to(".logo-svg", {
                 duration: 0.2,
                 color: "#100E0E"
+            });
+            gsap.to(".background-blur-menu", {
+                duration: 0.2,
+                backgroundColor: "#ffffff59"
             });
         } else {
             gsap.to("#open", {
@@ -744,45 +781,31 @@ function checkBgMenu() {
                 duration: 0.2,
                 color: "#ffffff"
             });
+            gsap.to(".background-blur-menu", {
+                duration: 0.2,
+                backgroundColor: "#100e0e59"
+            });
         }
+    } else {
+        gsap.to("#open", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to("#close", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".logo-svg", {
+            duration: 0.2,
+            color: "#ffffff"
+        });
+        gsap.to(".background-blur-menu", {
+            duration: 0.2,
+            backgroundColor: "#100e0e59"
+        });
     }
 }
-function checkTextWhite() {
-    gsap.to("#header-section-2", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#txt-section-2", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#header-section-1", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-    gsap.to("#txt-section-1", {
-        duration: 0.2,
-        color: "#ffffffbf"
-    });
-}
-function checkTextBlack() {
-    gsap.to("#header-section-2", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#txt-section-2", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#header-section-1", {
-        duration: 0.2,
-        color: "#000000"
-    });
-    gsap.to("#txt-section-1", {
-        duration: 0.2,
-        color: "#000000"
-    });
-}
+// menu animation timeline
 tlMenu.to(menu, {
     duration: 0.4,
     opacity: 1,
@@ -822,36 +845,35 @@ tlMenu.to(link4, {
     stagger: 0.2,
     ease: "power3.easeInOut"
 }, "-=0.5");
+tlMenu.to(link5, {
+    delay: 0.22,
+    duration: 0.35,
+    y: 0,
+    opacity: 1,
+    stagger: 0.2,
+    ease: "power3.easeInOut"
+}, "-=0.5");
 tlMenu.reverse();
 ham.addEventListener("click", ()=>{
     tlMenu.reversed(!tlMenu.reversed());
     $(".menu-wrapper").toggleClass("open");
     checkBgMenu();
     if ($(".menu-wrapper").hasClass("open")) {
+        mwrapp = true;
         $("body").addClass("no-scroll");
         checkScrollMenu();
     } else {
         $("body").removeClass("no-scroll");
+        mwrapp = false;
         checkScrollMenu();
     }
 });
-// menu hide-show on scroll
-var actionNav = gsap.to(".menu-wrapper", {
-    y: "-=80",
-    duration: 0.5,
-    ease: "power2.in",
-    paused: true
+document.querySelectorAll(".link-menu-1").forEach((link)=>{
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+        ham.click();
+    });
 });
-ScrollTrigger.create({
-    trigger: ".menu-wrapper",
-    start: "10px top",
-    end: 99999,
-    onUpdate: ({ progress , direction , isActive  })=>{
-        if (direction == -1) actionNav.reverse();
-        if (direction == 1) actionNav.play();
-        else if (direction == 1 && isActive == true) actionNav.play();
-    }
-}); // Animations cases
 
 },{}]},["lBd2m","c3tie"], "c3tie", "parcelRequire5054")
 
