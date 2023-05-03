@@ -593,21 +593,7 @@ function checkScrollMenu() {
     else lenis.start();
 }
 checkScrollMenu();
-//Typed text automatic
-var typed2 = new Typed("#typed", {
-    strings: [
-        "Web Solutions",
-        "Web Development",
-        "Web Design"
-    ],
-    typeSpeed: 70,
-    backSpeed: 30,
-    startDelay: 600,
-    backDelay: 1500,
-    fadeOut: true,
-    loop: true,
-    showCursor: false
-});
+//initialize gsap
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false
@@ -717,7 +703,7 @@ let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "55% 100%",
+        end: "45% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
