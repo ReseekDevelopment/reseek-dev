@@ -593,7 +593,6 @@ function checkScrollMenu() {
     else lenis.start();
 }
 checkScrollMenu();
-//initialize gsap
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
     markers: false

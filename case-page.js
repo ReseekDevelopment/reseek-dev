@@ -48,8 +48,6 @@ function checkScrollMenu(){
   }
   checkScrollMenu();
 
-//initialize gsap
-
   gsap.registerPlugin(ScrollTrigger);
 
   ScrollTrigger.defaults({
@@ -186,7 +184,6 @@ $(".section-1").each(function (index) {
             height: 0,
             ease: "none"
           }, 0);
-          
           
      
    
