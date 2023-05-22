@@ -870,7 +870,8 @@ document.querySelectorAll(".link-menu-1").forEach((link)=>{
         e.preventDefault();
         ham.click();
     });
-});
+}) //test
+;
 
 },{}]},["8YX5D","5EISo"], "5EISo", "parcelRequire5054")
 

@@ -304,9 +304,7 @@ tlMenu.to(link5, {
     ease: 'power3.easeInOut',
   }, "-=0.5");
 
-
 tlMenu.reverse();
-
 
 ham.addEventListener('click', () => {
   tlMenu.reversed(!tlMenu.reversed());
@@ -321,8 +319,6 @@ ham.addEventListener('click', () => {
       mwrapp = false;
       checkScrollMenu();
     }
-
-
 });
 
 document.querySelectorAll('.link-menu-1').forEach(link => {
@@ -332,4 +328,5 @@ document.querySelectorAll('.link-menu-1').forEach(link => {
   });
 })
 
+//test
    
