@@ -326,14 +326,18 @@ ham.addEventListener('click', () => {
   tlMenu.reversed(!tlMenu.reversed());
   $('.menu-wrapper').toggleClass('open');
    checkBgMenu();
+   
     if($('.menu-wrapper').hasClass('open')){
       mwrapp = true;
       $('body').addClass('no-scroll');
       checkScrollMenu();
     } else {
-      $('body').removeClass('no-scroll');
+   
       mwrapp = false;
       checkScrollMenu();
+      tlMenu.to(".overlay-blur", 0.05, {opacity:0, display:"none"});
+      $('body').removeClass('no-scroll');
+    
     }
 
 
