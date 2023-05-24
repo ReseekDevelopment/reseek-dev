@@ -884,6 +884,8 @@ document.querySelectorAll(".link-menu-1").forEach((link)=>{
     link.addEventListener("click", function(e) {
         e.preventDefault();
         ham.click();
+        var href = $(this).attr("href");
+        window.location.href = href;
     });
 });
 //Trigger squares 
