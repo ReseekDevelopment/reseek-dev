@@ -863,13 +863,9 @@ ham.addEventListener("click", ()=>{
         $("body").addClass("no-scroll");
         checkScrollMenu();
     } else {
+        $("body").removeClass("no-scroll");
         mwrapp = false;
         checkScrollMenu();
-        tlMenu.to(".overlay-blur", 0.05, {
-            opacity: 0,
-            display: "none"
-        });
-        $("body").removeClass("no-scroll");
     }
 });
 document.querySelectorAll(".link-menu-1").forEach((link)=>{
