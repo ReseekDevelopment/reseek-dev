@@ -174,7 +174,7 @@ $(".section-1").each(function (index) {
             scrollTrigger: {
               trigger: footerRound,
               start: "10% 100%",
-              end: "45% 100%",
+              end: "55% 100%",
               markers:false,
               scrub: 0,
               toggleActions: "restar pause reverse pause",
@@ -304,6 +304,7 @@ tlMenu.to(link5, {
     ease: 'power3.easeInOut',
   }, "-=0.5");
 
+
 tlMenu.reverse();
 
 
@@ -334,5 +335,5 @@ document.querySelectorAll('.link-menu-1').forEach(link => {
   });
 })
 
-//test
+
    

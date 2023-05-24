@@ -702,7 +702,7 @@ let tlFoot = gsap.timeline({
     scrollTrigger: {
         trigger: footerRound,
         start: "10% 100%",
-        end: "45% 100%",
+        end: "55% 100%",
         markers: false,
         scrub: 0,
         toggleActions: "restar pause reverse pause"
@@ -872,8 +872,7 @@ document.querySelectorAll(".link-menu-1").forEach((link)=>{
         var href = $(this).attr("href");
         window.location.href = href;
     });
-}) //test
-;
+});
 
 },{}]},["8YX5D","5EISo"], "5EISo", "parcelRequire5054")
 
