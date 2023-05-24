@@ -147,7 +147,7 @@ tl2.to(".loader-wrap", {
 
 
 //round section 1 animation
-/*$(".section-1").each(function (index) {
+$(".section-1").each(function (index) {
     let targetElementRound = $(".section-1-round .round-wrapp");
     const section1 = $(this);
     
@@ -166,7 +166,7 @@ tl2.to(".loader-wrap", {
       }, 0);
       
       });
-    */
+    
 //Round element footer
   
         let targetElementRound2 = $(".footer-round .round-wrapp-foot");
