@@ -349,6 +349,24 @@ document.querySelectorAll('.link-menu-1').forEach(link => {
   });
 })
 
+//privacy popup
+const openPrivacy = document.querySelector("#privacy-open");
+const closePrivacy = document.querySelector("#privacy-close");
+
+
+openPrivacy.addEventListener('click', () => {
+  if(!$('body').hasClass('no-scroll')){
+      $('body').addClass('no-scroll');
+      lenis.stop();
+  }
+});
+
+closePrivacy.addEventListener('click', () => {
+  if($('body').hasClass('no-scroll')){
+      $('body').removeClass('no-scroll');
+     lenis.start();
+      }
+});
 
 
 

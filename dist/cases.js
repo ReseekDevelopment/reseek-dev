@@ -874,6 +874,21 @@ document.querySelectorAll(".link-menu-1").forEach((link)=>{
         window.location.href = href;
     });
 });
+//privacy popup
+const openPrivacy = document.querySelector("#privacy-open");
+const closePrivacy = document.querySelector("#privacy-close");
+openPrivacy.addEventListener("click", ()=>{
+    if (!$("body").hasClass("no-scroll")) {
+        $("body").addClass("no-scroll");
+        lenis.stop();
+    }
+});
+closePrivacy.addEventListener("click", ()=>{
+    if ($("body").hasClass("no-scroll")) {
+        $("body").removeClass("no-scroll");
+        lenis.start();
+    }
+});
 
 },{}]},["lBd2m","c3tie"], "c3tie", "parcelRequire5054")
 
