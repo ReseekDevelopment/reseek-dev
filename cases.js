@@ -338,21 +338,57 @@ document.querySelectorAll('.link-menu-1').forEach(link => {
   });
 })
 
-//privacy popup
+
+//privacy popup / cookies
 const openPrivacy = document.querySelector("#privacy-open");
+const openPrivacyLink = document.querySelector("#open-privacy-link");
 const closePrivacy = document.querySelector("#privacy-close");
+const openCookie = document.querySelector("#open-cookie");
+const openCookieIcon = document.querySelector("#cookies-open-icon");
+const closeCookie = document.querySelector("#cookie-close-button");
+const closeCookieOverlay = document.querySelector("#overlay-cookie-close");
 
 
-openPrivacy.addEventListener('click', () => {
-  if(!$('body').hasClass('no-scroll')){
+function scrollStop(){
+if(!$('body').hasClass('no-scroll')){
       $('body').addClass('no-scroll');
       lenis.stop();
   }
-});
 
-closePrivacy.addEventListener('click', () => {
-  if($('body').hasClass('no-scroll')){
+}
+
+function scrollStart(){
+ if($('body').hasClass('no-scroll')){
       $('body').removeClass('no-scroll');
      lenis.start();
       }
+
+}
+
+openPrivacy.addEventListener('click', () => {
+  scrollStop();
+});
+openPrivacyLink.addEventListener('click', () => {
+  scrollStop();
+});
+openCookie.addEventListener('click', () => {
+  scrollStop();
+});
+
+openCookieIcon.addEventListener('click', () => {
+  scrollStop();
+});
+
+
+
+closePrivacy.addEventListener('click', () => {
+ scrollStart();
+});
+
+closeCookie.addEventListener('click', () => {
+ scrollStart();
+});
+
+closeCookieOverlay.addEventListener('click', () => {
+ scrollStart();
 });
