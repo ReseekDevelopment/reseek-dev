@@ -357,6 +357,7 @@ const openCookie = document.querySelector("#open-cookie");
 const openCookieIcon = document.querySelector("#cookies-open-icon");
 const closeCookie = document.querySelector("#cookie-close-button");
 const closeCookieOverlay = document.querySelector("#overlay-cookie-close");
+const acceptCookie = document.querySelector("#accept-cookie-button");
 
 
 function scrollStop(){
@@ -402,6 +403,17 @@ closeCookie.addEventListener('click', () => {
 closeCookieOverlay.addEventListener('click', () => {
  scrollStart();
 });
+
+acceptCookie.addEventListener('click', () => {
+ scrollStart();
+});
+
+$(".fs-cc-prefs_button").each(function () {
+this.addEventListener('click', () => {
+ scrollStart();
+});
+});
+
 
 //Trigger squares 
 var section0 = ('#section-0');
