@@ -883,12 +883,7 @@ const openCookieIcon = document.querySelector("#cookies-open-icon");
 const closeCookie = document.querySelector("#cookie-close-button");
 const closeCookieOverlay = document.querySelector("#overlay-cookie-close");
 const acceptCookie = document.querySelector("#accept-cookie-button");
-/*
-const acceptAllCookie = document.querySelector("#accept-all-cookies");
-const acceptNeedCookie = document.querySelector("#accept-needed-cookies");
-const savePrefCookie = document.querySelector("#save-cookies-pref");
-
-*/ function scrollStop() {
+function scrollStop() {
     if (!$("body").hasClass("no-scroll")) {
         $("body").addClass("no-scroll");
         lenis.stop();
@@ -928,19 +923,7 @@ $(".fs-cc-prefs_button").each(function() {
     this.addEventListener("click", ()=>{
         scrollStart();
     });
-}); /*
-acceptAllCookie.addEventListener('click', () => {
- scrollStart();
 });
-
-acceptNeedCookie.addEventListener('click', () => {
- scrollStart();
-});
-
-savePrefCookie.addEventListener('click', () => {
- scrollStart();
-});
-*/ 
 
 },{}]},["lBd2m","c3tie"], "c3tie", "parcelRequire5054")
 

@@ -348,12 +348,7 @@ const openCookieIcon = document.querySelector("#cookies-open-icon");
 const closeCookie = document.querySelector("#cookie-close-button");
 const closeCookieOverlay = document.querySelector("#overlay-cookie-close");
 const acceptCookie = document.querySelector("#accept-cookie-button");
-/*
-const acceptAllCookie = document.querySelector("#accept-all-cookies");
-const acceptNeedCookie = document.querySelector("#accept-needed-cookies");
-const savePrefCookie = document.querySelector("#save-cookies-pref");
 
-*/
 
 function scrollStop(){
 if(!$('body').hasClass('no-scroll')){
@@ -409,16 +404,3 @@ this.addEventListener('click', () => {
 });
 });
 
-/*
-acceptAllCookie.addEventListener('click', () => {
- scrollStart();
-});
-
-acceptNeedCookie.addEventListener('click', () => {
- scrollStart();
-});
-
-savePrefCookie.addEventListener('click', () => {
- scrollStart();
-});
-*/
